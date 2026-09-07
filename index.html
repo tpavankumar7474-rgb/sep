@@ -42,222 +42,6 @@ body {
 }
 
 /* =========================================================
-   LAYER CONTROL
-   ========================================================= */
-
-.leaflet-control-layers {
-    max-height: 85vh;
-    overflow-y: auto;
-    font-size: 13px;
-}
-
-/* =========================================================
-   MARKERS
-   ========================================================= */
-
-.dynamic-location-marker,
-.cluster-marker,
-.municipality-total-marker,
-.heat-label-marker,
-.heat-number-label {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.dynamic-location-marker *,
-.cluster-marker *,
-.municipality-total-marker *,
-.heat-label-marker *,
-.heat-number-label * {
-    border: none !important;
-}
-
-/* =========================================================
-   COUNT CIRCLE
-   ========================================================= */
-
-.count-circle {
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    border: none !important;
-
-    padding: 0;
-    margin: 0;
-
-    box-sizing: border-box;
-
-    font-weight: 900;
-    line-height: 1;
-
-    white-space: nowrap;
-
-    text-align: center;
-
-    color: white;
-
-    box-shadow:
-        0 2px 7px rgba(0,0,0,0.30),
-        0 0 9px rgba(0,0,0,0.18);
-
-    transition:
-        transform 0.12s ease,
-        box-shadow 0.12s ease;
-}
-
-/* =========================================================
-   DARK RISK COLORS
-   ========================================================= */
-
-.low-count .count-circle {
-    background: #166534 !important;
-}
-
-.medium-count .count-circle {
-    background: #A16207 !important;
-    color: #ffffff !important;
-}
-
-.high-count .count-circle {
-    background: #991B1B !important;
-}
-
-.no-data-count .count-circle {
-    background: #64748B !important;
-}
-
-/* =========================================================
-   MUNICIPALITY TOTAL
-   ========================================================= */
-
-.municipality-total-circle {
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    border: none !important;
-
-    box-sizing: border-box;
-
-    color: white;
-
-    font-weight: 900;
-
-    line-height: 1;
-
-    text-align: center;
-
-    box-shadow:
-        0 3px 10px rgba(0,0,0,0.35);
-
-    transition:
-        transform 0.12s ease,
-        box-shadow 0.12s ease;
-}
-
-/* =========================================================
-   TOOLTIP
-   ========================================================= */
-
-.leaflet-tooltip.custom-tooltip {
-
-    background: rgba(255,255,255,0.97);
-
-    border: 1px solid #222;
-
-    border-radius: 7px;
-
-    box-shadow:
-        0 2px 10px rgba(0,0,0,0.30);
-
-    color: #111;
-
-    padding: 7px 9px;
-
-    font-size: 13px;
-
-    line-height: 1.55;
-}
-
-/* =========================================================
-   LEGEND
-   ========================================================= */
-
-.risk-legend {
-
-    background: rgba(255,255,255,0.96);
-
-    border: 1px solid #333;
-
-    border-radius: 9px;
-
-    padding: 9px 12px;
-
-    box-shadow:
-        0 2px 8px rgba(0,0,0,0.28);
-
-    color: #111;
-
-    font-size: 12px;
-
-    min-width: 150px;
-}
-
-.risk-legend-title {
-
-    font-weight: 800;
-
-    font-size: 13px;
-
-    text-align: center;
-
-    margin-bottom: 7px;
-}
-
-.legend-row {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    margin: 4px 0;
-}
-
-.legend-color {
-
-    width: 18px;
-    height: 18px;
-
-    border-radius: 50%;
-
-    border: none !important;
-}
-
-.legend-green {
-    background: #166534;
-}
-
-.legend-yellow {
-    background: #A16207;
-}
-
-.legend-red {
-    background: #991B1B;
-}
-
-/* =========================================================
    TITLE
    ========================================================= */
 
@@ -266,7 +50,6 @@ body {
     position: absolute;
 
     top: 10px;
-
     left: 50%;
 
     transform: translateX(-50%);
@@ -294,7 +77,7 @@ body {
 }
 
 /* =========================================================
-   MAP INFO
+   INFO
    ========================================================= */
 
 .map-info {
@@ -302,7 +85,6 @@ body {
     position: absolute;
 
     top: 52px;
-
     left: 50%;
 
     transform: translateX(-50%);
@@ -320,6 +102,125 @@ body {
     color: #333;
 
     pointer-events: none;
+}
+
+/* =========================================================
+   TOOLTIP
+   ========================================================= */
+
+.leaflet-tooltip.custom-tooltip {
+
+    background: rgba(255,255,255,0.97);
+
+    border: 1px solid #333;
+
+    border-radius: 7px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.30);
+
+    color: #111;
+
+    padding: 7px 9px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+}
+
+/* =========================================================
+   OLD MUNICIPALITY COUNT STYLE
+   ========================================================= */
+
+.municipality-count-label {
+
+    background: transparent !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+    color: #ffffff !important;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: 900;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,0.95),
+        0 0 5px rgba(0,0,0,0.9);
+
+    pointer-events: auto;
+
+    cursor: pointer;
+}
+
+/* =========================================================
+   GROUP COUNT
+   ========================================================= */
+
+.group-count-label {
+
+    background: transparent !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+    color: #ffffff !important;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: 900;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,0.95),
+        0 0 5px rgba(0,0,0,0.9);
+
+    cursor: pointer;
+}
+
+/* =========================================================
+   DISTRICT COUNT
+   ========================================================= */
+
+.district-count-label {
+
+    background: transparent !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+    color: #ffffff !important;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: 900;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,0.95),
+        0 0 5px rgba(0,0,0,0.9);
+
+    cursor: pointer;
 }
 
 /* =========================================================
@@ -352,47 +253,69 @@ body {
 }
 
 /* =========================================================
-   NUMBER LABEL
+   LEGEND
    ========================================================= */
 
-.heat-number-label {
+.risk-legend {
 
-    color: #ffffff !important;
+    background: rgba(255,255,255,0.96);
 
-    font:
-        900 15px/1 Arial, sans-serif !important;
+    border: 1px solid #333;
 
-    text-shadow:
-        0 1px 3px rgba(0,0,0,0.95),
-        0 0 4px rgba(0,0,0,0.85);
+    border-radius: 9px;
 
-    white-space: nowrap;
+    padding: 9px 12px;
 
-    pointer-events: auto;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.28);
 
-    cursor: pointer;
+    color: #111;
+
+    font-size: 12px;
+
+    min-width: 145px;
 }
 
-/* =========================================================
-   GROUP LABEL
-   ========================================================= */
+.risk-legend-title {
 
-.level-group-label {
+    font-weight: 800;
 
-    color: #ffffff !important;
+    font-size: 13px;
 
-    font:
-        900 17px/1 Arial, sans-serif !important;
+    text-align: center;
 
-    text-shadow:
-        0 1px 3px rgba(0,0,0,0.95),
-        0 0 5px rgba(0,0,0,0.90);
+    margin-bottom: 7px;
+}
 
-    white-space: nowrap;
+.legend-row {
 
-    pointer-events: auto;
+    display: flex;
 
-    cursor: pointer;
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 4px 0;
+}
+
+.legend-color {
+
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+}
+
+.legend-red {
+    background: #A61B1B;
+}
+
+.legend-yellow {
+    background: #F9A825;
+}
+
+.legend-green {
+    background: #2E7D32;
 }
 
 /* =========================================================
@@ -410,7 +333,7 @@ body {
 
     .risk-legend {
 
-        min-width: 130px;
+        min-width: 125px;
 
         font-size: 11px;
     }
@@ -432,9 +355,7 @@ body {
     id="map-info"
     class="map-info"
 >
-    🟢 Low &nbsp;&nbsp;
-    🟡 Medium &nbsp;&nbsp;
-    🔴 High
+    Municipality Overview
 </div>
 
 <script
@@ -470,46 +391,44 @@ const osm = L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 
     {
+
         attribution:
             "© OpenStreetMap contributors",
 
-        maxZoom: 19,
+        maxZoom:
+            19,
 
-        updateWhenIdle: true,
+        updateWhenIdle:
+            true,
 
-        keepBuffer: 2
+        keepBuffer:
+            2
+
     }
 
-).addTo(map);
-
-/* =========================================================
-   SATELLITE
-   ========================================================= */
+);
 
 const satellite = L.tileLayer(
 
     "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
 
     {
-        maxZoom: 19,
+
+        maxZoom:
+            19,
 
         attribution:
             "Tiles © Esri",
 
-        updateWhenIdle: true,
+        updateWhenIdle:
+            true,
 
-        keepBuffer: 2
+        keepBuffer:
+            2
+
     }
 
-);
-
-satellite.addTo(map);
-
-if (map.hasLayer(osm)) {
-
-    map.removeLayer(osm);
-
-}
+).addTo(map);
 
 /* =========================================================
    MUNICIPALITIES
@@ -518,54 +437,26 @@ if (map.hasLayer(osm)) {
 const CITIES = [
 
     "Dammam",
-
     "Dhahran",
-
     "Khobar"
 
 ];
 
 /* =========================================================
-   DARK COLORS
+   YOUR EXACT COLORS
    ========================================================= */
 
-const DARK_RED = "#991B1B";
+const DARK_RED =
+    "#A61B1B";
 
-const DARK_YELLOW = "#A16207";
+const GREEN =
+    "#2E7D32";
 
-const DARK_GREEN = "#166534";
+const YELLOW =
+    "#F9A825";
 
-const NO_DATA = "#64748B";
-
-/* =========================================================
-   CITY COLORS
-   ========================================================= */
-
-const CITY_COLOR = {
-
-    Dammam:
-        DARK_RED,
-
-    Khobar:
-        DARK_YELLOW,
-
-    Dhahran:
-        DARK_GREEN
-};
-
-/* =========================================================
-   GROUP COLORS
-   ========================================================= */
-
-const GROUP_COLOR = [
-
-    DARK_RED,
-
-    DARK_YELLOW,
-
-    DARK_GREEN
-
-];
+const NO_DATA =
+    "#64748B";
 
 /* =========================================================
    DATA STORES
@@ -585,14 +476,10 @@ const municipalityBoundaryFeatures = {};
 
 const municipalityCenters = {};
 
-const municipalityDistrictCenters = {};
-
 const municipalityIncidentRows = {
 
     Dammam: [],
-
     Dhahran: [],
-
     Khobar: []
 
 };
@@ -600,9 +487,7 @@ const municipalityIncidentRows = {
 const municipalityTotals = {
 
     Dammam: 0,
-
     Dhahran: 0,
-
     Khobar: 0
 
 };
@@ -615,21 +500,12 @@ const cityDistrictCache = {};
 
 const cityGroupCache = {};
 
-const districtRiskCache = {};
-
-let dataVersion = 0;
-
 /* =========================================================
    DRILL STATE
-   =========================================================
 
-   0 = Municipalities
-
-   1 = Three geographic groups
-
-   2 = Actual districts
-
-   No Level 4.
+   0 = Municipality
+   1 = Three Groups
+   2 = Districts
 
    ========================================================= */
 
@@ -639,31 +515,25 @@ let selectedMunicipality = null;
 
 let selectedCluster = null;
 
-let selectedSubCluster = null;
-
-/* =========================================================
-   CURRENT GROUPS
-   ========================================================= */
-
 let currentClusters = [];
-
-/* =========================================================
-   MAP STATE
-   ========================================================= */
-
-let mapReady = false;
-
-let pendingIncidentData = null;
 
 /* =========================================================
    VISUAL LAYERS
    ========================================================= */
 
-const finalVisualLayer =
+const visualLayer =
     L.layerGroup().addTo(map);
 
-const finalLabelLayer =
+const labelLayer =
     L.layerGroup().addTo(map);
+
+/* =========================================================
+   MAP READY
+   ========================================================= */
+
+let mapReady = false;
+
+let pendingIncidentData = null;
 
 /* =========================================================
    NORMALIZE NAME
@@ -680,6 +550,7 @@ function normalizeName(value) {
         .toLowerCase()
 
         .replace(/[‐-‒–—―]/g, "-");
+
 }
 
 /* =========================================================
@@ -701,6 +572,7 @@ function normalizeArabic(value) {
         .replace(/ة/g, "ه")
 
         .replace(/\s+/g, " ");
+
 }
 
 /* =========================================================
@@ -712,6 +584,27 @@ function districtLookupKey(name) {
     return normalizeArabic(
         normalizeName(name)
     );
+
+}
+
+/* =========================================================
+   MAP INFO
+   ========================================================= */
+
+function updateMapInfo(text) {
+
+    const el =
+        document.getElementById(
+            "map-info"
+        );
+
+    if (el) {
+
+        el.innerHTML =
+            text;
+
+    }
+
 }
 
 /* =========================================================
@@ -723,89 +616,28 @@ function getDistrictCount(name) {
     const key =
         districtLookupKey(name);
 
-    return Number(
+    if (
+        districtNameLookup[key]
+    ) {
 
-        districtNameLookup[key]?.count ||
-
-        districtCounts[name]?.count ||
-
-        0
-
-    );
-}
-
-/* =========================================================
-   MAP INFO
-   ========================================================= */
-
-function updateMapInfo(text) {
-
-    const el =
-        document.getElementById("map-info");
-
-    if (el) {
-
-        el.innerHTML = text;
+        return Number(
+            districtNameLookup[key].count || 0
+        );
 
     }
-}
 
-/* =========================================================
-   MUNICIPALITY BOUNDARY STYLE
-   ========================================================= */
+    if (
+        districtCounts[name]
+    ) {
 
-function boundaryStyle(city) {
+        return Number(
+            districtCounts[name].count || 0
+        );
 
-    const color =
-        CITY_COLOR[city] || "#374151";
+    }
 
-    return {
+    return 0;
 
-        color: color,
-
-        weight: 2.5,
-
-        opacity: 0.95,
-
-        fillColor: color,
-
-        fillOpacity: 0.06,
-
-        interactive: true
-    };
-}
-
-/* =========================================================
-   KEEP MUNICIPALITY BOUNDARIES VISIBLE
-   =========================================================
-
-   IMPORTANT:
-
-   We NEVER remove municipality boundaries
-   automatically during drill-down.
-
-   Client can manually unselect them
-   from Layer Control.
-
-   ========================================================= */
-
-function showMunicipalityBoundaries() {
-
-    CITIES.forEach(city => {
-
-        const layer =
-            municipalityBoundaryLayers[city];
-
-        if (
-            layer &&
-            !map.hasLayer(layer)
-        ) {
-
-            layer.addTo(map);
-
-        }
-
-    });
 }
 
 /* =========================================================
@@ -857,13 +689,21 @@ function pointInRing(
             &&
 
             (
+
                 lng <
+
                 (
+
                     (lngJ - lngI) *
+
                     (lat - latI) /
+
                     ((latJ - latI) || 1e-12)
-                ) +
-                lngI
+
+                )
+
+                + lngI
+
             );
 
         if (intersect) {
@@ -875,6 +715,7 @@ function pointInRing(
     }
 
     return inside;
+
 }
 
 /* =========================================================
@@ -931,6 +772,7 @@ function pointInPolygon(
     }
 
     return true;
+
 }
 
 /* =========================================================
@@ -969,24 +811,22 @@ function pointInGeometry(
     ) {
 
         return geometry.coordinates.some(
-
             polygon =>
-
                 pointInPolygon(
                     lat,
                     lng,
                     polygon
                 )
-
         );
 
     }
 
     return false;
+
 }
 
 /* =========================================================
-   MUNICIPALITY BY COORDINATES
+   RESOLVE CITY BY COORDINATES
    ========================================================= */
 
 function resolveMunicipalityByCoordinates(
@@ -1031,6 +871,7 @@ function resolveMunicipalityByCoordinates(
     }
 
     return null;
+
 }
 
 /* =========================================================
@@ -1062,10 +903,11 @@ function distanceSquared(
         dx * dx +
         dy * dy
     );
+
 }
 
 /* =========================================================
-   MUNICIPALITY FALLBACK
+   FALLBACK CITY
    ========================================================= */
 
 function resolveMunicipalityFallback(
@@ -1084,39 +926,50 @@ function resolveMunicipalityFallback(
 
     let bestCity = null;
 
-    let bestDistance = Infinity;
+    let bestDistance =
+        Infinity;
 
-    CITIES.forEach(city => {
+    CITIES.forEach(
+        city => {
 
-        const center =
-            municipalityCenters[city];
+            const center =
+                municipalityCenters[city];
 
-        if (!center) return;
+            if (!center) {
 
-        const distance =
-            distanceSquared(
-                lat,
-                lng,
-                center.lat,
-                center.long
-            );
+                return;
 
-        if (
-            distance <
-            bestDistance
-        ) {
+            }
 
-            bestDistance =
-                distance;
+            const distance =
+                distanceSquared(
 
-            bestCity =
-                city;
+                    lat,
+                    lng,
+
+                    center.lat,
+                    center.long
+
+                );
+
+            if (
+                distance <
+                bestDistance
+            ) {
+
+                bestDistance =
+                    distance;
+
+                bestCity =
+                    city;
+
+            }
 
         }
-
-    });
+    );
 
     return bestCity;
+
 }
 
 /* =========================================================
@@ -1132,38 +985,42 @@ function resolveMunicipality(
     const cleanName =
         String(name || "").trim();
 
-    const districtCity =
-        districtToCity[cleanName];
-
-    if (districtCity) {
-
-        return {
-
-            city:
-                districtCity,
-
-            method:
-                "district-geojson"
-        };
-
-    }
-
-    const normalized =
-        districtNameLookup[
-            districtLookupKey(cleanName)
-        ];
-
     if (
-        normalized?.city
+        districtToCity[cleanName]
     ) {
 
         return {
 
             city:
-                normalized.city,
+                districtToCity[cleanName],
 
             method:
-                "district-normalized"
+                "district"
+
+        };
+
+    }
+
+    const lookup =
+        districtNameLookup[
+            districtLookupKey(
+                cleanName
+            )
+        ];
+
+    if (
+        lookup &&
+        lookup.city
+    ) {
+
+        return {
+
+            city:
+                lookup.city,
+
+            method:
+                "normalized"
+
         };
 
     }
@@ -1182,7 +1039,8 @@ function resolveMunicipality(
                 boundaryCity,
 
             method:
-                "coordinate-boundary"
+                "boundary"
+
         };
 
     }
@@ -1201,84 +1059,111 @@ function resolveMunicipality(
                 fallbackCity,
 
             method:
-                "municipality-fallback"
+                "fallback"
+
         };
 
     }
 
     return {
 
-        city: null,
+        city:
+            null,
 
         method:
             "unresolved"
+
     };
+
 }
 
 /* =========================================================
-   RISK
+   COUNT RISK
+
+   Uses count distribution across municipalities.
+
+   Highest = RED
+   Middle  = YELLOW
+   Lowest  = GREEN
+
    ========================================================= */
 
-function classifyCounts(items) {
+function getMunicipalityColor(
+    city
+) {
 
     const values =
 
-        (items || [])
+        CITIES
 
             .map(
-                x =>
-                    Number(x.count || 0)
-            )
-
-            .filter(
-                x => x > 0
+                c =>
+                    Number(
+                        municipalityTotals[c] || 0
+                    )
             )
 
             .sort(
-                (a,b) => a-b
+                (a,b) => a - b
             );
 
-    if (!values.length) {
+    const count =
+        Number(
+            municipalityTotals[city] || 0
+        );
 
-        return {
+    if (
+        count <= 0
+    ) {
 
-            low: 0,
-
-            high: 0
-        };
+        return NO_DATA;
 
     }
 
-    const n =
-        values.length;
+    if (
+        values.length <= 1
+    ) {
 
-    const low =
-        values[
-            Math.floor(
-                (n - 1) / 3
-            )
-        ];
+        return GREEN;
 
-    const high =
-        values[
-            Math.floor(
-                2 * (n - 1) / 3
-            )
-        ];
+    }
 
-    return {
+    const min =
+        values[0];
 
-        low,
+    const max =
+        values[values.length - 1];
 
-        high
-    };
+    if (
+        count === max &&
+        max !== min
+    ) {
+
+        return DARK_RED;
+
+    }
+
+    if (
+        count === min &&
+        max !== min
+    ) {
+
+        return GREEN;
+
+    }
+
+    return YELLOW;
+
 }
 
 /* =========================================================
-   RISK
+   DISTRICT RISK
+
+   Uses count distribution within current group.
+
    ========================================================= */
 
-function getRisk(
+function getDistrictRiskColor(
     count,
     stats
 ) {
@@ -1290,36 +1175,16 @@ function getRisk(
         count <= 0
     ) {
 
-        return {
-
-            level:
-                "No Data",
-
-            color:
-                NO_DATA,
-
-            className:
-                "no-data-count"
-        };
+        return NO_DATA;
 
     }
 
     if (
         !stats ||
-        stats.high <= 0
+        stats.max <= 0
     ) {
 
-        return {
-
-            level:
-                "High",
-
-            color:
-                DARK_RED,
-
-            className:
-                "high-count"
-        };
+        return GREEN;
 
     }
 
@@ -1327,17 +1192,7 @@ function getRisk(
         count >= stats.high
     ) {
 
-        return {
-
-            level:
-                "High",
-
-            color:
-                DARK_RED,
-
-            className:
-                "high-count"
-        };
+        return DARK_RED;
 
     }
 
@@ -1345,330 +1200,101 @@ function getRisk(
         count >= stats.low
     ) {
 
-        return {
-
-            level:
-                "Medium",
-
-            color:
-                DARK_YELLOW,
-
-            className:
-                "medium-count"
-        };
+        return YELLOW;
 
     }
 
-    return {
+    return GREEN;
 
-        level:
-            "Low",
-
-        color:
-            DARK_GREEN,
-
-        className:
-            "low-count"
-    };
 }
 
 /* =========================================================
-   MUNICIPALITY RISK
+   CLASSIFY COUNTS
    ========================================================= */
 
-function getMunicipalityRisk(
-    count
+function classifyCounts(
+    rows
 ) {
 
     const values =
-        CITIES.map(
-            city =>
-                Number(
-                    municipalityTotals[city] || 0
-                )
-        ).sort(
-            (a,b) => a-b
-        );
 
-    if (!values.length) {
+        (rows || [])
 
-        return {
-
-            level: "No Data",
-
-            color: NO_DATA
-        };
-
-    }
-
-    if (
-        values.length === 1
-    ) {
-
-        return {
-
-            level: "High",
-
-            color: DARK_RED
-        };
-
-    }
-
-    const low =
-        values[
-            Math.floor(
-                (values.length - 1) / 3
+            .map(
+                row =>
+                    Number(
+                        row.count || 0
+                    )
             )
-        ];
 
-    const high =
-        values[
-            Math.floor(
-                2 *
-                (values.length - 1) /
-                3
+            .filter(
+                value =>
+                    value > 0
             )
-        ];
+
+            .sort(
+                (a,b) =>
+                    a - b
+            );
 
     if (
-        count >= high
+        !values.length
     ) {
 
         return {
 
-            level: "High",
+            min:
+                0,
 
-            color: DARK_RED
+            max:
+                0,
+
+            low:
+                0,
+
+            high:
+                0
+
         };
 
     }
 
-    if (
-        count >= low
-    ) {
-
-        return {
-
-            level: "Medium",
-
-            color: DARK_YELLOW
-        };
-
-    }
+    const n =
+        values.length;
 
     return {
 
-        level: "Low",
+        min:
+            values[0],
 
-        color: DARK_GREEN
+        max:
+            values[n - 1],
+
+        low:
+            values[
+                Math.floor(
+                    (n - 1) / 3
+                )
+            ],
+
+        high:
+            values[
+                Math.floor(
+                    2 *
+                    (n - 1) /
+                    3
+                )
+            ]
+
     };
+
 }
 
 /* =========================================================
-   BUBBLE SIZE
+   CENTROID
    ========================================================= */
 
-function getBubbleSize(
-    count,
-    globalMax,
-    minSize = 30,
-    maxSize = 52
-) {
-
-    count =
-        Number(count || 0);
-
-    globalMax =
-        Number(globalMax || 0);
-
-    if (
-        globalMax <= 0
-    ) {
-
-        return minSize;
-
-    }
-
-    const ratio =
-        Math.sqrt(
-            Math.max(
-                0,
-                count / globalMax
-            )
-        );
-
-    return Math.round(
-
-        minSize +
-
-        (
-            maxSize -
-            minSize
-        ) *
-
-        ratio
-
-    );
-}
-
-/* =========================================================
-   MUNICIPALITY TOTAL POSITION
-   =========================================================
-
-   IMPORTANT:
-
-   Instead of using the municipality polygon
-   bounding-box center, calculate the average
-   position of the actual districts that contain
-   incident data.
-
-   ========================================================= */
-
-function calculateMunicipalityDataCenter(
-    city
-) {
-
-    const rows =
-        municipalityIncidentRows[city] || [];
-
-    const valid =
-        rows.filter(
-            row =>
-
-                Number.isFinite(
-                    Number(row.lat)
-                )
-
-                &&
-
-                Number.isFinite(
-                    Number(row.lng)
-                )
-
-                &&
-
-                Number(row.count || 0) > 0
-        );
-
-    if (valid.length) {
-
-        let totalWeight = 0;
-
-        let lat = 0;
-
-        let lng = 0;
-
-        valid.forEach(row => {
-
-            const weight =
-                Math.max(
-                    Number(row.count || 0),
-                    1
-                );
-
-            lat +=
-                Number(row.lat) *
-                weight;
-
-            lng +=
-                Number(row.lng) *
-                weight;
-
-            totalWeight += weight;
-
-        });
-
-        if (
-            totalWeight > 0
-        ) {
-
-            return {
-
-                lat:
-                    lat / totalWeight,
-
-                lng:
-                    lng / totalWeight
-            };
-
-        }
-
-    }
-
-    /* -----------------------------------------------------
-       If incident coordinates aren't available,
-       use actual district polygon centers.
-       ----------------------------------------------------- */
-
-    const districtCenters =
-        [];
-
-    Object.keys(
-        districtLayers
-    ).forEach(name => {
-
-        if (
-            districtToCity[name] !== city
-        ) {
-
-            return;
-
-        }
-
-        const layer =
-            districtLayers[name];
-
-        if (
-            !layer ||
-            !layer.getBounds().isValid()
-        ) {
-
-            return;
-
-        }
-
-        const center =
-            layer.getBounds().getCenter();
-
-        districtCenters.push({
-
-            lat:
-                center.lat,
-
-            lng:
-                center.lng
-        });
-
-    });
-
-    if (
-        districtCenters.length
-    ) {
-
-        return getSimpleCentroid(
-            districtCenters
-        );
-
-    }
-
-    return municipalityCenters[city]
-        ? {
-
-            lat:
-                municipalityCenters[city].lat,
-
-            lng:
-                municipalityCenters[city].long
-        }
-
-        : null;
-}
-
-/* =========================================================
-   SIMPLE CENTROID
-   ========================================================= */
-
-function getSimpleCentroid(
+function getCentroid(
     items
 ) {
 
@@ -1685,32 +1311,34 @@ function getSimpleCentroid(
 
     let lng = 0;
 
-    let count = 0;
+    let total = 0;
 
-    items.forEach(item => {
+    items.forEach(
+        item => {
 
-        const a =
-            Number(item.lat);
+            const a =
+                Number(item.lat);
 
-        const b =
-            Number(item.lng);
+            const b =
+                Number(item.lng);
 
-        if (
-            Number.isFinite(a) &&
-            Number.isFinite(b)
-        ) {
+            if (
+                Number.isFinite(a) &&
+                Number.isFinite(b)
+            ) {
 
-            lat += a;
+                lat += a;
 
-            lng += b;
+                lng += b;
 
-            count++;
+                total++;
+
+            }
 
         }
+    );
 
-    });
-
-    if (!count) {
+    if (!total) {
 
         return null;
 
@@ -1719,23 +1347,25 @@ function getSimpleCentroid(
     return {
 
         lat:
-            lat / count,
+            lat / total,
 
         lng:
-            lng / count
+            lng / total
+
     };
+
 }
 
 /* =========================================================
-   PLAIN LABEL
+   PLAIN TEXT LABEL
    ========================================================= */
 
-function makePlainLabel(
+function createTextLabel(
     lat,
     lng,
     text,
     className,
-    onClick
+    clickHandler
 ) {
 
     if (
@@ -1749,15 +1379,16 @@ function makePlainLabel(
 
     const marker =
         L.marker(
-            [lat, lng],
+
+            [lat,lng],
+
             {
 
                 icon:
                     L.divIcon({
 
                         className:
-                            className ||
-                            "heat-number-label",
+                            className,
 
                         html:
                             String(text),
@@ -1767,92 +1398,190 @@ function makePlainLabel(
 
                         iconAnchor:
                             [0,0]
+
                     }),
 
                 zIndexOffset:
-                    3000,
+                    3000
 
-                interactive:
-                    true,
-
-                keyboard:
-                    true
             }
+
         );
 
-    if (onClick) {
+    if (clickHandler) {
 
         marker.on(
             "click",
-            onClick
+            clickHandler
         );
 
     }
 
-    finalLabelLayer.addLayer(
+    labelLayer.addLayer(
         marker
     );
 
     return marker;
-}
-
-/* =========================================================
-   CLEAR VISUALS
-   ========================================================= */
-
-function clearVisuals() {
-
-    finalVisualLayer.clearLayers();
-
-    finalLabelLayer.clearLayers();
 
 }
 
 /* =========================================================
-   HIDE DISTRICTS
+   CITY DISTRICT DATA
    ========================================================= */
 
-function hideAllDistrictLayers() {
+function cityDistrictItems(
+    city
+) {
 
-    Object.keys(
-        districtLayers
-    ).forEach(name => {
+    if (
+        cityDistrictCache[city]
+    ) {
 
-        const layer =
-            districtLayers[name];
+        return cityDistrictCache[city];
 
-        if (
-            layer &&
-            map.hasLayer(layer)
-        ) {
+    }
 
-            map.removeLayer(layer);
+    const rows =
+        municipalityIncidentRows[city] || [];
+
+    const byKey = {};
+
+    rows.forEach(
+        row => {
+
+            const rawName =
+                String(
+                    row.name ||
+                    row.state ||
+                    ""
+                ).trim();
+
+            if (!rawName) {
+
+                return;
+
+            }
+
+            const lookup =
+                districtNameLookup[
+                    districtLookupKey(
+                        rawName
+                    )
+                ];
+
+            const districtName =
+
+                lookup &&
+                lookup.city === city
+
+                    ? lookup.name
+
+                    : rawName;
+
+            const key =
+                districtLookupKey(
+                    districtName
+                );
+
+            let lat =
+                Number(row.lat);
+
+            let lng =
+                Number(row.lng);
+
+            /* ---------------------------------------------
+               Fallback to district polygon center
+               --------------------------------------------- */
+
+            if (
+                !Number.isFinite(lat) ||
+                !Number.isFinite(lng)
+            ) {
+
+                const layer =
+                    districtLayers[
+                        districtName
+                    ];
+
+                if (
+                    layer &&
+                    layer.getBounds().isValid()
+                ) {
+
+                    const center =
+                        layer
+                            .getBounds()
+                            .getCenter();
+
+                    lat =
+                        center.lat;
+
+                    lng =
+                        center.lng;
+
+                }
+
+            }
+
+            if (
+                !Number.isFinite(lat) ||
+                !Number.isFinite(lng)
+            ) {
+
+                return;
+
+            }
+
+            const count =
+                Number(
+                    row.count ||
+                    getDistrictCount(
+                        districtName
+                    ) ||
+                    0
+                );
+
+            if (
+                !byKey[key]
+            ) {
+
+                byKey[key] = {
+
+                    name:
+                        districtName,
+
+                    count,
+
+                    lat,
+
+                    lng,
+
+                    city
+
+                };
+
+            }
 
         }
+    );
 
-    });
+    const result =
+        Object.values(
+            byKey
+        );
+
+    cityDistrictCache[city] =
+        result;
+
+    return result;
 
 }
 
 /* =========================================================
-   DO NOT HIDE MUNICIPALITY BOUNDARIES
+   THREE GEOGRAPHIC GROUPS
    ========================================================= */
 
-function keepBoundariesVisible() {
-
-    showMunicipalityBoundaries();
-
-}
-
-/* =========================================================
-   GROUPING
-   =========================================================
-
-   Three geographic contiguous groups.
-
-   ========================================================= */
-
-function createThreeGeographicGroups(
+function createThreeGroups(
     rows
 ) {
 
@@ -1881,13 +1610,14 @@ function createThreeGeographicGroups(
                     Number(
                         row.count || 0
                     )
+
             })
         );
 
     }
 
     const center =
-        getSimpleCentroid(
+        getCentroid(
             rows
         );
 
@@ -1911,6 +1641,7 @@ function createThreeGeographicGroups(
 
                             Number(a.lng) -
                             center.lng
+
                         );
 
                     const angleB =
@@ -1921,29 +1652,43 @@ function createThreeGeographicGroups(
 
                             Number(b.lng) -
                             center.lng
+
                         );
 
-                    return angleA -
-                        angleB;
+                    return (
+                        angleA -
+                        angleB
+                    );
+
                 }
             );
 
-    const n =
+    const total =
         sorted.length;
 
     const base =
-        Math.floor(n / 3);
+        Math.floor(
+            total / 3
+        );
 
     const remainder =
-        n % 3;
+        total % 3;
 
     const sizes = [
 
         base +
-        (remainder > 0 ? 1 : 0),
+        (
+            remainder > 0
+                ? 1
+                : 0
+        ),
 
         base +
-        (remainder > 1 ? 1 : 0),
+        (
+            remainder > 1
+                ? 1
+                : 0
+        ),
 
         base
 
@@ -1963,11 +1708,17 @@ function createThreeGeographicGroups(
 
         const items =
             sorted.slice(
+
                 start,
-                start + sizes[i]
+
+                start +
+                sizes[i]
+
             );
 
-        if (items.length) {
+        if (
+            items.length
+        ) {
 
             groups.push({
 
@@ -1978,16 +1729,21 @@ function createThreeGeographicGroups(
 
                 total:
                     items.reduce(
+
                         (
                             sum,
                             item
                         ) =>
+
                             sum +
                             Number(
                                 item.count || 0
                             ),
+
                         0
+
                     )
+
             });
 
         }
@@ -1998,156 +1754,11 @@ function createThreeGeographicGroups(
     }
 
     return groups;
+
 }
 
 /* =========================================================
-   GET CITY DISTRICTS
-   ========================================================= */
-
-function cityDistrictItems(
-    city
-) {
-
-    if (
-        cityDistrictCache[city]
-    ) {
-
-        return cityDistrictCache[city];
-
-    }
-
-    const rows =
-        municipalityIncidentRows[city] || [];
-
-    const byKey = {};
-
-    rows.forEach(row => {
-
-        const rawName =
-            String(
-                row.name ||
-                row.state ||
-                ""
-            ).trim();
-
-        if (!rawName) {
-
-            return;
-
-        }
-
-        const lookup =
-            districtNameLookup[
-                districtLookupKey(
-                    rawName
-                )
-            ];
-
-        const name =
-            (
-                lookup &&
-                lookup.city === city
-            )
-
-                ? lookup.name
-
-                : rawName;
-
-        const key =
-            districtLookupKey(
-                name
-            );
-
-        let lat =
-            Number(row.lat);
-
-        let lng =
-            Number(row.lng);
-
-        /* ---------------------------------------------------
-           Use actual district polygon center when
-           incident coordinates are unavailable.
-           --------------------------------------------------- */
-
-        if (
-            !Number.isFinite(lat) ||
-            !Number.isFinite(lng)
-        ) {
-
-            const layer =
-                districtLayers[name];
-
-            if (
-                layer &&
-                layer.getBounds().isValid()
-            ) {
-
-                const c =
-                    layer
-                        .getBounds()
-                        .getCenter();
-
-                lat =
-                    c.lat;
-
-                lng =
-                    c.lng;
-
-            }
-
-        }
-
-        if (
-            !Number.isFinite(lat) ||
-            !Number.isFinite(lng)
-        ) {
-
-            return;
-
-        }
-
-        const count =
-            Number(
-                row.count ||
-                getDistrictCount(name) ||
-                0
-            );
-
-        if (
-            !byKey[key]
-        ) {
-
-            byKey[key] = {
-
-                name,
-
-                count,
-
-                lat,
-
-                lng,
-
-                city
-
-            };
-
-        }
-
-    });
-
-    const result =
-        Object.values(
-            byKey
-        );
-
-    cityDistrictCache[city] =
-        result;
-
-    return result;
-}
-
-/* =========================================================
-   GROUP CACHE
+   GET CITY GROUPS
    ========================================================= */
 
 function getCityGroups(
@@ -2163,10 +1774,12 @@ function getCityGroups(
     }
 
     const rows =
-        cityDistrictItems(city);
+        cityDistrictItems(
+            city
+        );
 
     const groups =
-        createThreeGeographicGroups(
+        createThreeGroups(
             rows
         );
 
@@ -2174,21 +1787,58 @@ function getCityGroups(
         groups;
 
     return groups;
+
 }
 
 /* =========================================================
-   STYLE GROUP DISTRICTS
+   MUNICIPALITY BOUNDARY STYLE
    ========================================================= */
 
-function styleGroupDistrict(
-    name,
+function getMunicipalityStyle(
+    city
+) {
+
+    const color =
+        getMunicipalityColor(
+            city
+        );
+
+    return {
+
+        color:
+            color,
+
+        weight:
+            2.5,
+
+        opacity:
+            0.95,
+
+        fillColor:
+            color,
+
+        fillOpacity:
+            0.28
+
+    };
+
+}
+
+/* =========================================================
+   DISTRICT GROUP STYLE
+   ========================================================= */
+
+function setGroupDistrictStyle(
+    districtName,
     color,
     group,
     city
 ) {
 
     const layer =
-        districtLayers[name];
+        districtLayers[
+            districtName
+        ];
 
     if (!layer) {
 
@@ -2205,7 +1855,7 @@ function styleGroupDistrict(
             1.2,
 
         opacity:
-            0.85,
+            0.9,
 
         fillColor:
             color,
@@ -2227,19 +1877,23 @@ function styleGroupDistrict(
         "click"
     );
 
-    /* -------------------------------------------------------
-       Hover ONLY changes border weight.
-       It NEVER changes fill color.
-       ------------------------------------------------------- */
+    /* ---------------------------------------------
+       Hover does NOT change the fill color.
+       --------------------------------------------- */
 
     layer.on(
+
         "mouseover",
+
         function() {
 
             layer.setStyle({
 
                 weight:
-                    2.2,
+                    2.4,
+
+                color:
+                    color,
 
                 fillColor:
                     color,
@@ -2250,16 +1904,22 @@ function styleGroupDistrict(
             });
 
         }
+
     );
 
     layer.on(
+
         "mouseout",
+
         function() {
 
             layer.setStyle({
 
                 weight:
                     1.2,
+
+                color:
+                    color,
 
                 fillColor:
                     color,
@@ -2270,10 +1930,13 @@ function styleGroupDistrict(
             });
 
         }
+
     );
 
     layer.on(
+
         "click",
+
         function() {
 
             showDistrictLevel(
@@ -2282,6 +1945,7 @@ function styleGroupDistrict(
             );
 
         }
+
     );
 
     if (
@@ -2300,12 +1964,11 @@ function styleGroupDistrict(
 
 function addGroupLabel(
     group,
-    city,
-    index
+    city
 ) {
 
     const center =
-        getSimpleCentroid(
+        getCentroid(
             group.items
         );
 
@@ -2315,7 +1978,7 @@ function addGroupLabel(
 
     }
 
-    makePlainLabel(
+    createTextLabel(
 
         center.lat,
 
@@ -2325,7 +1988,7 @@ function addGroupLabel(
             group.total || 0
         ).toLocaleString(),
 
-        "level-group-label",
+        "group-count-label",
 
         function() {
 
@@ -2341,16 +2004,18 @@ function addGroupLabel(
 }
 
 /* =========================================================
-   DISTRICT STYLE
+   DISTRICT RISK STYLE
    ========================================================= */
 
 function styleDistrictRisk(
-    name,
-    risk
+    item,
+    stats
 ) {
 
     const layer =
-        districtLayers[name];
+        districtLayers[
+            item.name
+        ];
 
     if (!layer) {
 
@@ -2358,25 +2023,14 @@ function styleDistrictRisk(
 
     }
 
-    let color =
-        DARK_GREEN;
+    const color =
+        getDistrictRiskColor(
 
-    if (
-        risk === "High"
-    ) {
+            item.count,
 
-        color =
-            DARK_RED;
+            stats
 
-    }
-    else if (
-        risk === "Medium"
-    ) {
-
-        color =
-            DARK_YELLOW;
-
-    }
+        );
 
     layer.setStyle({
 
@@ -2393,7 +2047,7 @@ function styleDistrictRisk(
             color,
 
         fillOpacity:
-            0.55
+            0.58
 
     });
 
@@ -2405,13 +2059,14 @@ function styleDistrictRisk(
         "mouseout"
     );
 
-    /* -------------------------------------------------------
-       IMPORTANT:
-       Hover never changes fill color.
-       ------------------------------------------------------- */
+    /* ---------------------------------------------
+       Hover only increases border weight.
+       --------------------------------------------- */
 
     layer.on(
+
         "mouseover",
+
         function() {
 
             layer.setStyle({
@@ -2423,15 +2078,18 @@ function styleDistrictRisk(
                     color,
 
                 fillOpacity:
-                    0.62
+                    0.64
 
             });
 
         }
+
     );
 
     layer.on(
+
         "mouseout",
+
         function() {
 
             layer.setStyle({
@@ -2443,100 +2101,108 @@ function styleDistrictRisk(
                     color,
 
                 fillOpacity:
-                    0.55
+                    0.58
 
             });
 
         }
+
     );
 
 }
 
 /* =========================================================
-   DISTRICT TOOLTIP
+   CLEAR VISUALS
    ========================================================= */
 
-function bindDistrictTooltip(
-    layer,
-    item,
-    city,
-    risk
-) {
+function clearVisuals() {
 
-    layer.bindTooltip(
+    visualLayer.clearLayers();
 
-        `
-        <b>${item.name}</b>
-        <br>
-        Municipality:
-        ${city}
-        <br>
-        Incidents:
-        ${Number(
-            item.count || 0
-        ).toLocaleString()}
-        <br>
-        Risk:
-        ${risk}
-        `,
+    labelLayer.clearLayers();
 
-        {
+}
 
-            sticky:
-                true,
+/* =========================================================
+   HIDE DISTRICTS
 
-            direction:
-                "top",
+   IMPORTANT:
+   Only districts are hidden automatically.
 
-            opacity:
-                0.95,
+   Municipality boundaries are NOT touched.
 
-            className:
-                "custom-tooltip"
+   ========================================================= */
+
+function hideAllDistrictLayers() {
+
+    Object.keys(
+        districtLayers
+    ).forEach(
+        name => {
+
+            const layer =
+                districtLayers[name];
+
+            if (
+                layer &&
+                map.hasLayer(layer)
+            ) {
+
+                map.removeLayer(
+                    layer
+                );
+
+            }
+
         }
-
     );
 
 }
 
 /* =========================================================
-   POST MESSAGE
+   BOUNDARIES
+
+   We do NOT remove these during drill-down.
+
+   This only makes sure the initial state has them.
+
+   After the client manually unchecks one,
+   drill-down will NOT force it back on.
+
    ========================================================= */
 
-function sendMapClick(
-    item,
-    city
-) {
+function ensureMunicipalityBoundaries() {
 
-    window.parent.postMessage(
+    CITIES.forEach(
+        city => {
 
-        {
+            const layer =
+                municipalityBoundaryLayers[
+                    city
+                ];
 
-            type:
-                "mapClick",
+            if (
+                layer &&
+                !map.hasLayer(layer)
+            ) {
 
-            state:
-                item.name,
+                /*
+                 * Do not automatically re-add it
+                 * during drill-down.
+                 *
+                 * Layer Control owns visibility.
+                 */
 
-            municipality:
-                city,
+            }
 
-            lat:
-                item.lat,
-
-            long:
-                item.lng
-
-        },
-
-        "*"
-
+        }
     );
 
 }
 
 /* =========================================================
    LEVEL 1
+   MUNICIPALITY OVERVIEW
    ========================================================= */
 
 function showMunicipalityOverview() {
@@ -2550,9 +2216,6 @@ function showMunicipalityOverview() {
     selectedCluster =
         null;
 
-    selectedSubCluster =
-        null;
-
     currentClusters =
         [];
 
@@ -2561,21 +2224,20 @@ function showMunicipalityOverview() {
     hideAllDistrictLayers();
 
     /* =====================================================
-       IMPORTANT:
-       Municipality boundaries ALWAYS remain visible.
-       ===================================================== */
+       OLD MUNICIPALITY STYLE
 
-    keepBoundariesVisible();
+       NO CLUSTERED BUBBLES.
 
-    /* =====================================================
-       Municipality styles
+       The municipality polygon itself is colored.
        ===================================================== */
 
     CITIES.forEach(
         city => {
 
             const boundary =
-                municipalityBoundaryLayers[city];
+                municipalityBoundaryLayers[
+                    city
+                ];
 
             if (!boundary) {
 
@@ -2584,7 +2246,9 @@ function showMunicipalityOverview() {
             }
 
             const color =
-                CITY_COLOR[city];
+                getMunicipalityColor(
+                    city
+                );
 
             boundary.setStyle({
 
@@ -2601,7 +2265,7 @@ function showMunicipalityOverview() {
                     color,
 
                 fillOpacity:
-                    0.06
+                    0.28
 
             });
 
@@ -2609,22 +2273,79 @@ function showMunicipalityOverview() {
     );
 
     /* =====================================================
-       Municipality total labels
+       MUNICIPALITY COUNT
 
-       IMPORTANT:
-       Position comes from actual district
-       data locations, NOT municipality center.
+       OLD STYLE:
+       one simple count label.
+
+       Position:
+       actual district/data center where available.
        ===================================================== */
 
     CITIES.forEach(
         city => {
 
-            const position =
-                calculateMunicipalityDataCenter(
+            const rows =
+                municipalityIncidentRows[
                     city
+                ] || [];
+
+            const validRows =
+                rows.filter(
+                    row =>
+
+                        Number.isFinite(
+                            Number(row.lat)
+                        )
+
+                        &&
+
+                        Number.isFinite(
+                            Number(row.lng)
+                        )
                 );
 
-            if (!position) {
+            let center =
+                getCentroid(
+                    validRows
+                );
+
+            /* ---------------------------------------------
+               Fallback to municipality polygon center
+               --------------------------------------------- */
+
+            if (!center) {
+
+                const boundary =
+                    municipalityBoundaryLayers[
+                        city
+                    ];
+
+                if (
+                    boundary &&
+                    boundary.getBounds().isValid()
+                ) {
+
+                    const c =
+                        boundary
+                            .getBounds()
+                            .getCenter();
+
+                    center = {
+
+                        lat:
+                            c.lat,
+
+                        lng:
+                            c.lng
+
+                    };
+
+                }
+
+            }
+
+            if (!center) {
 
                 return;
 
@@ -2632,121 +2353,33 @@ function showMunicipalityOverview() {
 
             const count =
                 Number(
-                    municipalityTotals[city] || 0
-                );
-
-            const risk =
-                getMunicipalityRisk(
-                    count
+                    municipalityTotals[
+                        city
+                    ] || 0
                 );
 
             const color =
-                risk.color;
-
-            const size =
-                getBubbleSize(
-                    count,
-                    Math.max(
-                        ...CITIES.map(
-                            c =>
-                                Number(
-                                    municipalityTotals[c] ||
-                                    0
-                                )
-                        ),
-                        1
-                    ),
-                    48,
-                    72
+                getMunicipalityColor(
+                    city
                 );
 
-            const marker =
-                L.marker(
+            /*
+             * OLD STYLE:
+             * Just the number.
+             * NO bubble.
+             * NO clustered circle.
+             */
 
-                    [
-                        position.lat,
-                        position.lng
-                    ],
+            createTextLabel(
 
-                    {
+                center.lat,
 
-                        icon:
-                            L.divIcon({
+                center.lng,
 
-                                className:
-                                    "municipality-total-marker",
+                count.toLocaleString(),
 
-                                html:
-                                    `
-                                    <div
-                                        class="municipality-total-circle"
-                                        style="
-                                            width:${size}px;
-                                            height:${size}px;
-                                            background:${color};
-                                            font-size:14px;
-                                        "
-                                    >
-                                        ${count.toLocaleString()}
-                                    </div>
-                                    `,
+                "municipality-count-label",
 
-                                iconSize:
-                                    [
-                                        size,
-                                        size
-                                    ],
-
-                                iconAnchor:
-                                    [
-                                        size / 2,
-                                        size / 2
-                                    ]
-                            }),
-
-                        zIndexOffset:
-                            3000,
-
-                        interactive:
-                            true
-                    }
-
-                );
-
-            marker.bindTooltip(
-
-                `
-                <b>Municipality:</b>
-                ${city}
-                <br>
-                <b>Total Incidents:</b>
-                ${count.toLocaleString()}
-                <br>
-                <b>Risk:</b>
-                ${risk.level}
-                <br><br>
-                <b>Click to divide into 3 areas</b>
-                `,
-
-                {
-
-                    sticky:
-                        true,
-
-                    direction:
-                        "top",
-
-                    opacity:
-                        0.95,
-
-                    className:
-                        "custom-tooltip"
-                }
-
-            );
-
-            marker.on(
-                "click",
                 function() {
 
                     showMunicipality(
@@ -2754,25 +2387,82 @@ function showMunicipalityOverview() {
                     );
 
                 }
+
             );
 
-            finalLabelLayer.addLayer(
-                marker
-            );
+            /*
+             * Tooltip attached to number.
+             */
+
+            const labels =
+                labelLayer.getLayers();
+
+            const marker =
+                labels[
+                    labels.length - 1
+                ];
+
+            if (marker) {
+
+                marker.bindTooltip(
+
+                    `
+                    <b>Municipality:</b>
+                    ${city}
+                    <br>
+                    <b>Total Incidents:</b>
+                    ${count.toLocaleString()}
+                    <br>
+                    <b>Color:</b>
+                    ${
+                        color === DARK_RED
+                            ? "High"
+                            : color === YELLOW
+                                ? "Medium"
+                                : color === GREEN
+                                    ? "Low"
+                                    : "No Data"
+                    }
+                    <br><br>
+                    <b>Click to drill down</b>
+                    `,
+
+                    {
+
+                        direction:
+                            "top",
+
+                        sticky:
+                            true,
+
+                        opacity:
+                            0.95,
+
+                        className:
+                            "custom-tooltip"
+
+                    }
+
+                );
+
+            }
 
         }
     );
 
     /* =====================================================
-       MAP EXTENT
+       FIT ALL MUNICIPALITIES
        ===================================================== */
 
     const boundaries =
+
         CITIES
 
             .map(
                 city =>
-                    municipalityBoundaryLayers[city]
+                    municipalityBoundaryLayers[
+                        city
+                    ]
             )
 
             .filter(Boolean);
@@ -2797,13 +2487,14 @@ function showMunicipalityOverview() {
                 {
 
                     padding:
-                        [40,40],
+                        [35,35],
 
                     maxZoom:
                         12,
 
                     animate:
                         false
+
                 }
 
             );
@@ -2814,7 +2505,7 @@ function showMunicipalityOverview() {
 
     updateMapInfo(
 
-        "<b>LEVEL 1</b> — Municipalities | Click a total count"
+        "<b>LEVEL 1</b> — Municipalities | Click municipality count"
 
     );
 
@@ -2828,7 +2519,7 @@ function showMunicipalityOverview() {
     if (title) {
 
         title.innerHTML =
-            "Municipalities Overview";
+            "Municipality Incident Map";
 
     }
 
@@ -2836,11 +2527,15 @@ function showMunicipalityOverview() {
 
 /* =========================================================
    LEVEL 2
+   MUNICIPALITY → 3 GROUPS
    ========================================================= */
 
 function showMunicipality(
     city
 ) {
+
+    drillLevel =
+        1;
 
     selectedMunicipality =
         city;
@@ -2848,21 +2543,15 @@ function showMunicipality(
     selectedCluster =
         null;
 
-    selectedSubCluster =
-        null;
-
-    drillLevel =
-        1;
-
     clearVisuals();
 
     hideAllDistrictLayers();
 
-    /* =====================================================
-       DO NOT HIDE MUNICIPALITY BOUNDARY
-       ===================================================== */
-
-    keepBoundariesVisible();
+    /*
+     * IMPORTANT:
+     *
+     * No municipality boundary removal here.
+     */
 
     const groups =
         getCityGroups(
@@ -2872,23 +2561,30 @@ function showMunicipality(
     currentClusters =
         groups;
 
-    /* =====================================================
-       Show exactly 3 geographic groups
-       ===================================================== */
-
     groups.forEach(
+
         (
             group,
             index
         ) => {
 
             const color =
-                GROUP_COLOR[index];
+
+                index === 0
+
+                    ? DARK_RED
+
+                    : index === 1
+
+                        ? YELLOW
+
+                        : GREEN;
 
             group.items.forEach(
+
                 item => {
 
-                    styleGroupDistrict(
+                    setGroupDistrictStyle(
 
                         item.name,
 
@@ -2901,15 +2597,19 @@ function showMunicipality(
                     );
 
                 }
+
             );
 
             addGroupLabel(
+
                 group,
-                city,
-                index
+
+                city
+
             );
 
         }
+
     );
 
     /* =====================================================
@@ -2917,7 +2617,9 @@ function showMunicipality(
        ===================================================== */
 
     const boundary =
-        municipalityBoundaryLayers[city];
+        municipalityBoundaryLayers[
+            city
+        ];
 
     if (
         boundary &&
@@ -2931,13 +2633,14 @@ function showMunicipality(
             {
 
                 padding:
-                    [55,55],
+                    [50,50],
 
                 maxZoom:
                     13,
 
                 animate:
                     false
+
             }
 
         );
@@ -2950,9 +2653,9 @@ function showMunicipality(
         <b>LEVEL 2</b> —
         ${city}
         |
-        3 geographic areas
+        3 Geographic Groups
         |
-        Centre value = SUM of incidents
+        Click a group count
         `
 
     );
@@ -2967,7 +2670,7 @@ function showMunicipality(
     if (title) {
 
         title.innerHTML =
-            `${city} — 3 Areas`;
+            `${city} — 3 Geographic Groups`;
 
     }
 
@@ -2975,6 +2678,7 @@ function showMunicipality(
 
 /* =========================================================
    LEVEL 3
+   GROUP → DISTRICTS
    ========================================================= */
 
 function showDistrictLevel(
@@ -2982,24 +2686,15 @@ function showDistrictLevel(
     city
 ) {
 
-    selectedCluster =
-        group;
-
-    selectedSubCluster =
-        null;
-
     drillLevel =
         2;
+
+    selectedCluster =
+        group;
 
     clearVisuals();
 
     hideAllDistrictLayers();
-
-    /* =====================================================
-       DO NOT HIDE MUNICIPALITY BOUNDARY
-       ===================================================== */
-
-    keepBoundariesVisible();
 
     const rows =
         group.items || [];
@@ -3007,9 +2702,7 @@ function showDistrictLevel(
     if (!rows.length) {
 
         updateMapInfo(
-
             `${city} — No district data`
-
         );
 
         updateBackButton();
@@ -3018,30 +2711,19 @@ function showDistrictLevel(
 
     }
 
-    /* =====================================================
-       Calculate risk once
-       ===================================================== */
-
     const stats =
         classifyCounts(
             rows
         );
 
-    /* =====================================================
-       Show districts
-       ===================================================== */
-
     rows.forEach(
+
         item => {
 
-            const risk =
-                getRisk(
-                    item.count,
-                    stats
-                );
-
             const layer =
-                districtLayers[item.name];
+                districtLayers[
+                    item.name
+                ];
 
             if (!layer) {
 
@@ -3051,21 +2733,72 @@ function showDistrictLevel(
 
             styleDistrictRisk(
 
-                item.name,
+                item,
 
-                risk.level
+                stats
 
             );
 
-            bindDistrictTooltip(
+            const riskColor =
+                getDistrictRiskColor(
 
-                layer,
+                    item.count,
 
-                item,
+                    stats
 
-                city,
+                );
 
-                risk.level
+            const riskText =
+
+                riskColor === DARK_RED
+
+                    ? "High"
+
+                    : riskColor === YELLOW
+
+                        ? "Medium"
+
+                        : riskColor === GREEN
+
+                            ? "Low"
+
+                            : "No Data";
+
+            layer.unbindTooltip();
+
+            layer.bindTooltip(
+
+                `
+                <b>District:</b>
+                ${item.name}
+                <br>
+                <b>Municipality:</b>
+                ${city}
+                <br>
+                <b>Incidents:</b>
+                ${Number(
+                    item.count || 0
+                ).toLocaleString()}
+                <br>
+                <b>Risk:</b>
+                ${riskText}
+                `,
+
+                {
+
+                    sticky:
+                        true,
+
+                    direction:
+                        "top",
+
+                    opacity:
+                        0.95,
+
+                    className:
+                        "custom-tooltip"
+
+                }
 
             );
 
@@ -3074,15 +2807,38 @@ function showDistrictLevel(
             );
 
             layer.on(
+
                 "click",
+
                 function() {
 
-                    sendMapClick(
-                        item,
-                        city
+                    window.parent.postMessage(
+
+                        {
+
+                            type:
+                                "mapClick",
+
+                            state:
+                                item.name,
+
+                            municipality:
+                                city,
+
+                            lat:
+                                item.lat,
+
+                            long:
+                                item.lng
+
+                        },
+
+                        "*"
+
                     );
 
                 }
+
             );
 
             if (
@@ -3093,11 +2849,12 @@ function showDistrictLevel(
 
             }
 
-            /* ---------------------------------------------
-               Count label at actual district coordinate
-               --------------------------------------------- */
+            /*
+             * Actual district count
+             * at actual district coordinate.
+             */
 
-            makePlainLabel(
+            createTextLabel(
 
                 item.lat,
 
@@ -3107,13 +2864,33 @@ function showDistrictLevel(
                     item.count || 0
                 ).toLocaleString(),
 
-                "heat-number-label",
+                "district-count-label",
 
                 function() {
 
-                    sendMapClick(
-                        item,
-                        city
+                    window.parent.postMessage(
+
+                        {
+
+                            type:
+                                "mapClick",
+
+                            state:
+                                item.name,
+
+                            municipality:
+                                city,
+
+                            lat:
+                                item.lat,
+
+                            long:
+                                item.lng
+
+                        },
+
+                        "*"
+
                     );
 
                 }
@@ -3121,16 +2898,19 @@ function showDistrictLevel(
             );
 
         }
+
     );
 
     /* =====================================================
-       FIT DISTRICTS
+       FIT GROUP
        ===================================================== */
 
     const points =
+
         rows
 
             .filter(
+
                 item =>
 
                     Number.isFinite(
@@ -3142,9 +2922,11 @@ function showDistrictLevel(
                     Number.isFinite(
                         Number(item.lng)
                     )
+
             )
 
             .map(
+
                 item => [
 
                     Number(item.lat),
@@ -3152,6 +2934,7 @@ function showDistrictLevel(
                     Number(item.lng)
 
                 ]
+
             );
 
     if (
@@ -3174,13 +2957,14 @@ function showDistrictLevel(
                 {
 
                     padding:
-                        [75,75],
+                        [60,60],
 
                     maxZoom:
                         16,
 
                     animate:
                         false
+
                 }
 
             );
@@ -3198,8 +2982,6 @@ function showDistrictLevel(
         Group ${(Number(group.index) || 0) + 1}
         |
         Actual Districts
-        |
-        Click a district
         `
 
     );
@@ -3221,20 +3003,16 @@ function showDistrictLevel(
 }
 
 /* =========================================================
-   SECOND LEVEL COMPATIBILITY
-   =========================================================
-
-   Existing external calls still work.
-
+   COMPATIBILITY
    ========================================================= */
 
 function showSecondLevel(
-    cluster,
+    group,
     city
 ) {
 
     showDistrictLevel(
-        cluster,
+        group,
         city
     );
 
@@ -3275,12 +3053,15 @@ backControl.onAdd =
         );
 
         div.addEventListener(
+
             "click",
+
             function() {
 
                 handleBack();
 
             }
+
         );
 
         return div;
@@ -3292,37 +3073,22 @@ backControl.addTo(
 );
 
 /* =========================================================
-   BACK HANDLER
+   BACK
    ========================================================= */
 
 function handleBack() {
-
-    /* =====================================================
-       Level 3 → Level 2
-       ===================================================== */
 
     if (
         drillLevel === 2
     ) {
 
-        if (
-            selectedMunicipality &&
-            selectedCluster
-        ) {
-
-            showMunicipality(
-                selectedMunicipality
-            );
-
-        }
+        showMunicipality(
+            selectedMunicipality
+        );
 
         return;
 
     }
-
-    /* =====================================================
-       Level 2 → Level 1
-       ===================================================== */
 
     if (
         drillLevel === 1
@@ -3387,10 +3153,10 @@ function updateBackButton() {
 }
 
 /* =========================================================
-   DISTRICT GEOJSON STYLE
+   DISTRICT INITIAL STYLE
    ========================================================= */
 
-function districtStyle(
+function districtInitialStyle(
     city,
     districtName
 ) {
@@ -3399,18 +3165,6 @@ function districtStyle(
         getDistrictCount(
             districtName
         );
-
-    let color =
-        NO_DATA;
-
-    if (
-        count > 0
-    ) {
-
-        color =
-            DARK_GREEN;
-
-    }
 
     return {
 
@@ -3421,21 +3175,24 @@ function districtStyle(
             1,
 
         opacity:
-            0.80,
+            0.75,
 
         fillColor:
-            color,
+            count > 0
+                ? GREEN
+                : NO_DATA,
 
         fillOpacity:
             count > 0
-                ? 0.20
+                ? 0.18
                 : 0.03
+
     };
 
 }
 
 /* =========================================================
-   MAKE DISTRICT NODES
+   MAKE DISTRICT LAYERS
    ========================================================= */
 
 function makeDistrictNodes(
@@ -3457,6 +3214,7 @@ function makeDistrictNodes(
     return data.features
 
         .map(
+
             feature => {
 
                 const districtName =
@@ -3475,9 +3233,7 @@ function makeDistrictNodes(
 
                     ).trim();
 
-                if (
-                    !districtName
-                ) {
+                if (!districtName) {
 
                     return null;
 
@@ -3504,6 +3260,7 @@ function makeDistrictNodes(
                         getDistrictCount(
                             districtName
                         )
+
                 };
 
                 const layer =
@@ -3514,13 +3271,14 @@ function makeDistrictNodes(
                         {
 
                             style:
-                                districtStyle(
+                                districtInitialStyle(
                                     city,
                                     districtName
                                 ),
 
                             interactive:
                                 true
+
                         }
 
                     );
@@ -3541,6 +3299,7 @@ function makeDistrictNodes(
                 };
 
             }
+
         )
 
         .filter(Boolean);
@@ -3597,13 +3356,10 @@ Promise.all(
            ================================================= */
 
         if (
-
             municipalityData &&
-
             Array.isArray(
                 municipalityData.features
             )
-
         ) {
 
             municipalityData.features.forEach(
@@ -3629,8 +3385,14 @@ Promise.all(
                     let city =
                         null;
 
+                    const normalized =
+                        normalizeName(
+                            name
+                        );
+
                     if (
-                        name === "الدمام"
+                        normalized ===
+                        "dammam"
                     ) {
 
                         city =
@@ -3638,7 +3400,8 @@ Promise.all(
 
                     }
                     else if (
-                        name === "الظهران"
+                        normalized ===
+                        "dhahran"
                     ) {
 
                         city =
@@ -3646,47 +3409,44 @@ Promise.all(
 
                     }
                     else if (
-                        name === "الخبر"
+                        normalized ===
+                        "khobar"
                     ) {
 
                         city =
                             "Khobar";
 
                     }
-                    else {
 
-                        const normalized =
-                            normalizeName(
-                                name
-                            );
+                    /* Arabic names */
 
-                        if (
-                            normalized ===
-                            "dammam"
-                        ) {
+                    if (
+                        !city &&
+                        name === "الدمام"
+                    ) {
 
-                            city =
-                                "Dammam";
+                        city =
+                            "Dammam";
 
-                        }
-                        else if (
-                            normalized ===
-                            "dhahran"
-                        ) {
+                    }
 
-                            city =
-                                "Dhahran";
+                    if (
+                        !city &&
+                        name === "الظهران"
+                    ) {
 
-                        }
-                        else if (
-                            normalized ===
-                            "khobar"
-                        ) {
+                        city =
+                            "Dhahran";
 
-                            city =
-                                "Khobar";
+                    }
 
-                        }
+                    if (
+                        !city &&
+                        name === "الخبر"
+                    ) {
+
+                        city =
+                            "Khobar";
 
                     }
 
@@ -3697,18 +3457,22 @@ Promise.all(
                     }
 
                     if (
-                        !municipalityBoundaryFeatures[city]
+                        !municipalityBoundaryFeatures[
+                            city
+                        ]
                     ) {
 
-                        municipalityBoundaryFeatures[city] =
-                            [];
+                        municipalityBoundaryFeatures[
+                            city
+                        ] = [];
 
                     }
 
-                    municipalityBoundaryFeatures[city]
-                        .push(
-                            feature
-                        );
+                    municipalityBoundaryFeatures[
+                        city
+                    ].push(
+                        feature
+                    );
 
                     const boundary =
                         L.geoJSON(
@@ -3718,9 +3482,10 @@ Promise.all(
                             {
 
                                 style:
-                                    boundaryStyle(
+                                    getMunicipalityStyle(
                                         city
                                     )
+
                             }
 
                         );
@@ -3733,7 +3498,9 @@ Promise.all(
                         <br>
                         <b>Total Incidents:</b>
                         ${Number(
-                            municipalityTotals[city] || 0
+                            municipalityTotals[
+                                city
+                            ] || 0
                         ).toLocaleString()}
                         `,
 
@@ -3750,6 +3517,7 @@ Promise.all(
 
                             className:
                                 "custom-tooltip"
+
                         }
 
                     );
@@ -3770,7 +3538,7 @@ Promise.all(
 
                     /* -------------------------------------
                        Hover only changes border.
-                       Fill remains same color.
+                       Fill remains same risk color.
                        ------------------------------------- */
 
                     boundary.on(
@@ -3780,21 +3548,23 @@ Promise.all(
                         function() {
 
                             const color =
-                                CITY_COLOR[city];
+                                getMunicipalityColor(
+                                    city
+                                );
 
                             boundary.setStyle({
 
-                                weight:
-                                    3.2,
-
                                 color:
                                     color,
+
+                                weight:
+                                    3.5,
 
                                 fillColor:
                                     color,
 
                                 fillOpacity:
-                                    0.08
+                                    0.34
 
                             });
 
@@ -3809,9 +3579,11 @@ Promise.all(
                         function() {
 
                             boundary.setStyle(
-                                boundaryStyle(
+
+                                getMunicipalityStyle(
                                     city
                                 )
+
                             );
 
                         }
@@ -3837,13 +3609,17 @@ Promise.all(
 
                         long:
                             center.lng
+
                     };
 
-                    /* -------------------------------------
-                       IMPORTANT:
-                       Add boundary once.
-                       It will remain visible at all levels.
-                       ------------------------------------- */
+                    /*
+                     * IMPORTANT:
+                     *
+                     * Add boundary only during initial load.
+                     *
+                     * We NEVER remove it during
+                     * Level 2 or Level 3.
+                     */
 
                     boundary.addTo(
                         map
@@ -3856,29 +3632,38 @@ Promise.all(
         }
 
         /* =================================================
-           DISTRICT LAYERS
+           DISTRICTS
            ================================================= */
 
         const dammamDistricts =
             makeDistrictNodes(
+
                 dammamData,
+
                 "Dammam"
+
             );
 
         const dhahranDistricts =
             makeDistrictNodes(
+
                 dhahranData,
+
                 "Dhahran"
+
             );
 
         const khobarDistricts =
             makeDistrictNodes(
+
                 khobarData,
+
                 "Khobar"
+
             );
 
         /* =================================================
-           LAYER TREE
+           LAYER CONTROL
            ================================================= */
 
         const overlaysTree = {
@@ -3911,8 +3696,10 @@ Promise.all(
                                         "Boundary",
 
                                     layer:
-                                        municipalityBoundaryLayers
-                                            .Dammam
+                                        municipalityBoundaryLayers[
+                                            "Dammam"
+                                        ]
+
                                 },
 
                                 {
@@ -3925,9 +3712,11 @@ Promise.all(
 
                                     children:
                                         dammamDistricts
+
                                 }
 
                             ]
+
                     },
 
                     {
@@ -3948,8 +3737,10 @@ Promise.all(
                                         "Boundary",
 
                                     layer:
-                                        municipalityBoundaryLayers
-                                            .Dhahran
+                                        municipalityBoundaryLayers[
+                                            "Dhahran"
+                                        ]
+
                                 },
 
                                 {
@@ -3962,9 +3753,11 @@ Promise.all(
 
                                     children:
                                         dhahranDistricts
+
                                 }
 
                             ]
+
                     },
 
                     {
@@ -3985,8 +3778,10 @@ Promise.all(
                                         "Boundary",
 
                                     layer:
-                                        municipalityBoundaryLayers
-                                            .Khobar
+                                        municipalityBoundaryLayers[
+                                            "Khobar"
+                                        ]
+
                                 },
 
                                 {
@@ -3999,12 +3794,15 @@ Promise.all(
 
                                     children:
                                         khobarDistricts
+
                                 }
 
                             ]
+
                     }
 
                 ]
+
         };
 
         L.control.layers.tree(
@@ -4012,7 +3810,10 @@ Promise.all(
             {
 
                 "Satellite":
-                    satellite
+                    satellite,
+
+                "OpenStreetMap":
+                    osm
 
             },
 
@@ -4042,56 +3843,6 @@ Promise.all(
         );
 
         /* =================================================
-           INITIAL EXTENT
-           ================================================= */
-
-        const boundaries =
-
-            CITIES
-
-                .map(
-                    city =>
-                        municipalityBoundaryLayers[city]
-                )
-
-                .filter(Boolean);
-
-        if (
-            boundaries.length
-        ) {
-
-            const group =
-                L.featureGroup(
-                    boundaries
-                );
-
-            const bounds =
-                group.getBounds();
-
-            if (
-                bounds.isValid()
-            ) {
-
-                map.fitBounds(
-
-                    bounds,
-
-                    {
-
-                        padding:
-                            [30,30],
-
-                        animate:
-                            false
-                    }
-
-                );
-
-            }
-
-        }
-
-        /* =================================================
            LEGEND
            ================================================= */
 
@@ -4115,12 +3866,10 @@ Promise.all(
 
                     );
 
-                div.innerHTML =
-
-                    `
+                div.innerHTML = `
 
                     <div class="risk-legend-title">
-                        Incident Risk
+                        Incident Count
                     </div>
 
                     <div class="legend-row">
@@ -4138,7 +3887,7 @@ Promise.all(
                         <span>High</span>
                     </div>
 
-                    `;
+                `;
 
                 return div;
 
@@ -4149,7 +3898,7 @@ Promise.all(
         );
 
         /* =================================================
-           MAP READY
+           READY
            ================================================= */
 
         mapReady =
@@ -4173,10 +3922,6 @@ Promise.all(
 
         }
 
-        /* =================================================
-           GRAFANA READY
-           ================================================= */
-
         window.parent.postMessage(
 
             {
@@ -4196,11 +3941,11 @@ Promise.all(
 
 .catch(
 
-    err => {
+    error => {
 
         console.error(
-            "Error loading GeoJSON:",
-            err
+            "GeoJSON loading error:",
+            error
         );
 
         updateMapInfo(
@@ -4212,37 +3957,29 @@ Promise.all(
 );
 
 /* =========================================================
-   APPLY GRAFANA DATA
+   APPLY INCIDENT DATA
    ========================================================= */
 
 function applyIncidentData(
     rows
 ) {
 
-    dataVersion++;
-
     /* =====================================================
-       CLEAR DATA
+       RESET
        ===================================================== */
 
     Object.keys(
         districtCounts
     ).forEach(
-        key => {
-
-            delete districtCounts[key];
-
-        }
+        key =>
+            delete districtCounts[key]
     );
 
     Object.keys(
         districtNameLookup
     ).forEach(
-        key => {
-
-            delete districtNameLookup[key];
-
-        }
+        key =>
+            delete districtNameLookup[key]
     );
 
     CITIES.forEach(
@@ -4262,10 +3999,17 @@ function applyIncidentData(
     );
 
     /* =====================================================
-       PROCESS GRAFANA ROWS
+       PROCESS ORIGINAL GRAFANA COLUMNS
+
+       state
+       count
+       lat
+       long
+
        ===================================================== */
 
     (rows || []).forEach(
+
         row => {
 
             const name =
@@ -4288,10 +4032,7 @@ function applyIncidentData(
                     row.long
                 );
 
-            if (
-                !name ||
-                !Number.isFinite(count)
-            ) {
+            if (!name) {
 
                 return;
 
@@ -4332,17 +4073,9 @@ function applyIncidentData(
 
                 console.warn(
 
-                    "Could not resolve municipality:",
+                    "Municipality not resolved:",
 
-                    {
-                        name,
-
-                        count,
-
-                        lat,
-
-                        lng
-                    }
+                    name
 
                 );
 
@@ -4357,22 +4090,20 @@ function applyIncidentData(
                Municipality total
                --------------------------------------------- */
 
-            municipalityTotals[city] +=
-                count;
+            municipalityTotals[
+                city
+            ] += count;
 
             /* ---------------------------------------------
-               Exact district
+               District count
                --------------------------------------------- */
 
-            const exactDistrict =
-                districtToCity[name];
-
             if (
-                exactDistrict
+                districtToCity[name]
             ) {
 
                 districtCounts[
-                    exactDistrict
+                    name
                 ] = {
 
                     count,
@@ -4381,13 +4112,10 @@ function applyIncidentData(
 
                     long:
                         lng
+
                 };
 
             }
-
-            /* ---------------------------------------------
-               Normalized lookup
-               --------------------------------------------- */
 
             districtNameLookup[
                 districtLookupKey(
@@ -4400,53 +4128,55 @@ function applyIncidentData(
                 city,
 
                 count
+
             };
 
             /* ---------------------------------------------
-               Keep row
+               Store original data
                --------------------------------------------- */
 
-            municipalityIncidentRows[city]
-                .push({
+            municipalityIncidentRows[
+                city
+            ].push({
 
-                    name,
+                name,
 
-                    count,
+                count,
 
-                    lat,
+                lat,
 
-                    lng,
+                lng,
 
-                    displayLat:
-                        lat,
+                city,
 
-                    displayLng:
-                        lng,
+                method:
+                    resolution.method
 
-                    city,
-
-                    method:
-                        resolution.method
-
-                });
+            });
 
         }
+
     );
 
     /* =====================================================
-       DISTRICT POLYGON TOOLTIP / STYLE UPDATE
+       UPDATE DISTRICT LAYERS
        ===================================================== */
 
     Object.keys(
         districtLayers
     ).forEach(
-        name => {
 
-            const city =
-                districtToCity[name];
+        districtName => {
 
             const layer =
-                districtLayers[name];
+                districtLayers[
+                    districtName
+                ];
+
+            const city =
+                districtToCity[
+                    districtName
+                ];
 
             if (!layer) {
 
@@ -4456,15 +4186,31 @@ function applyIncidentData(
 
             const count =
                 getDistrictCount(
-                    name
+                    districtName
                 );
 
-            layer.setStyle(
-                districtStyle(
-                    city,
-                    name
-                )
-            );
+            layer.setStyle({
+
+                color:
+                    "rgba(255,255,255,0.75)",
+
+                weight:
+                    1,
+
+                opacity:
+                    0.75,
+
+                fillColor:
+                    count > 0
+                        ? GREEN
+                        : NO_DATA,
+
+                fillOpacity:
+                    count > 0
+                        ? 0.18
+                        : 0.03
+
+            });
 
             layer.unbindTooltip();
 
@@ -4472,7 +4218,7 @@ function applyIncidentData(
 
                 `
                 <b>District:</b>
-                ${name}
+                ${districtName}
                 <br>
                 <b>Municipality:</b>
                 ${city}
@@ -4496,38 +4242,74 @@ function applyIncidentData(
 
                     className:
                         "custom-tooltip"
+
                 }
 
             );
 
         }
+
     );
 
     /* =====================================================
-       RESET VIEW
+       UPDATE MUNICIPALITY COLORS
+
+       This is where the OLD municipality
+       visual gets its count-based color.
        ===================================================== */
 
-    drillLevel =
-        0;
+    CITIES.forEach(
 
-    selectedMunicipality =
-        null;
+        city => {
 
-    selectedCluster =
-        null;
+            const boundary =
+                municipalityBoundaryLayers[
+                    city
+                ];
 
-    selectedSubCluster =
-        null;
+            if (!boundary) {
 
-    currentClusters =
-        [];
+                return;
+
+            }
+
+            boundary.setStyle({
+
+                color:
+                    getMunicipalityColor(
+                        city
+                    ),
+
+                weight:
+                    2.5,
+
+                opacity:
+                    0.95,
+
+                fillColor:
+                    getMunicipalityColor(
+                        city
+                    ),
+
+                fillOpacity:
+                    0.28
+
+            });
+
+        }
+
+    );
+
+    /* =====================================================
+       REFRESH
+       ===================================================== */
 
     showMunicipalityOverview();
 
 }
 
 /* =========================================================
-   RECEIVE GRAFANA DATA
+   RECEIVE GRAFANA MESSAGE
    ========================================================= */
 
 window.addEventListener(
@@ -4566,7 +4348,7 @@ window.addEventListener(
 );
 
 /* =========================================================
-   EXTERNAL FUNCTIONS
+   EXPOSE FUNCTIONS
    ========================================================= */
 
 window.showMunicipalityOverview =
@@ -4580,32 +4362,6 @@ window.showSecondLevel =
 
 window.showDistrictLevel =
     showDistrictLevel;
-
-/* =========================================================
-   FINAL SAFETY
-   =========================================================
-
-   Municipality boundaries are NEVER automatically hidden.
-
-   ========================================================= */
-
-console.log(
-    "Municipality Incident Map — Optimized 3-Level Version"
-);
-
-console.log(
-    "Dark colors:",
-    {
-        Low:
-            DARK_GREEN,
-
-        Medium:
-            DARK_YELLOW,
-
-        High:
-            DARK_RED
-    }
-);
 
 </script>
 
