@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta charset="utf-8">
@@ -21,6 +22,7 @@
     href="https://unpkg.com/leaflet.control.layers.tree@1.1.0/L.Control.Layers.Tree.css"
 />
 
+
 <style>
 
 /* =========================================================
@@ -29,16 +31,22 @@
 
 html,
 body {
+
     margin: 0;
     padding: 0;
+
     width: 100%;
     height: 100%;
+
     overflow: hidden;
 }
 
+
 #map {
+
     width: 100%;
     height: 100vh;
+
 }
 
 
@@ -47,7 +55,9 @@ body {
    ========================================================= */
 
 .map-title {
+
     position: absolute;
+
     top: 10px;
     left: 50%;
 
@@ -58,11 +68,13 @@ body {
     background: rgba(255,255,255,0.94);
 
     border: 1px solid #333;
+
     border-radius: 8px;
 
     padding: 7px 18px;
 
     font-size: 14px;
+
     font-weight: 800;
 
     color: #111;
@@ -71,6 +83,7 @@ body {
         0 2px 7px rgba(0,0,0,0.25);
 
     pointer-events: none;
+
 }
 
 
@@ -79,6 +92,7 @@ body {
    ========================================================= */
 
 .map-info {
+
     position: absolute;
 
     top: 52px;
@@ -99,6 +113,7 @@ body {
     color: #333;
 
     pointer-events: none;
+
 }
 
 
@@ -108,22 +123,63 @@ body {
 
 .leaflet-tooltip.custom-tooltip {
 
-    background: rgba(255,255,255,0.97);
+    background:
+        rgba(255,255,255,0.97);
 
-    border: 1px solid #333;
+    border:
+        1px solid #333;
 
-    border-radius: 7px;
+    border-radius:
+        7px;
 
     box-shadow:
         0 2px 10px rgba(0,0,0,0.30);
 
-    color: #111;
+    color:
+        #111;
 
-    padding: 7px 9px;
+    padding:
+        7px 9px;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    line-height: 1.55;
+    line-height:
+        1.55;
+
+}
+
+
+/* =========================================================
+   COUNT LABEL WRAPPER
+   ========================================================= */
+
+.count-bubble-wrapper {
+
+    background:
+        transparent !important;
+
+    border:
+        none !important;
+
+    box-shadow:
+        none !important;
+
+    overflow:
+        visible !important;
+
+    width:
+        1px !important;
+
+    height:
+        1px !important;
+
+    pointer-events:
+        auto;
+
+    cursor:
+        pointer;
+
 }
 
 
@@ -131,128 +187,146 @@ body {
    COUNT BUBBLE
    ========================================================= */
 
-.count-bubble-wrapper {
-
-    background: transparent !important;
-
-    border: none !important;
-
-    box-shadow: none !important;
-
-    overflow: visible !important;
-
-    width: 1px !important;
-    height: 1px !important;
-
-    pointer-events: auto;
-
-    cursor: pointer;
-}
-
-
 .count-bubble {
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: 0;
-    top: 0;
+    left:
+        0;
 
-    transform: translate(-50%, -50%);
+    top:
+        0;
 
-    display: flex;
+    transform:
+        translate(-50%, -50%);
 
-    align-items: center;
-    justify-content: center;
+    display:
+        flex;
 
-    border-radius: 50%;
+    align-items:
+        center;
 
-    color: #ffffff;
+    justify-content:
+        center;
 
-    font-family: Arial, sans-serif;
+    border-radius:
+        50%;
 
-    font-weight: 800;
+    color:
+        #ffffff;
 
-    text-align: center;
+    font-family:
+        Arial, sans-serif;
 
-    white-space: nowrap;
+    font-weight:
+        800;
+
+    text-align:
+        center;
+
+    white-space:
+        nowrap;
 
     text-shadow:
         0 1px 3px rgba(0,0,0,0.95);
 
-    border: none;
+    box-sizing:
+        border-box;
 
-    box-sizing: border-box;
+    pointer-events:
+        auto;
 
-    pointer-events: auto;
+    transition:
+        transform 0.12s ease;
+
 }
 
 
 /* =========================================================
    MUNICIPALITY BUBBLE
+   SMALLER
    ========================================================= */
 
 .municipality-bubble {
 
-    width: 76px;
-    height: 76px;
+    width:
+        58px;
 
-    font-size: 14px;
+    height:
+        58px;
 
-    box-shadow:
-
-        0 0 0 8px rgba(255,255,255,0.10),
-
-        0 0 14px var(--bubble-color),
-
-        0 0 28px var(--bubble-color),
-
-        inset 0 0 15px rgba(255,255,255,0.20);
-}
-
-
-/* =========================================================
-   GROUP BUBBLE
-   ========================================================= */
-
-.group-bubble {
-
-    width: 64px;
-    height: 64px;
-
-    font-size: 13px;
+    font-size:
+        12px;
 
     box-shadow:
 
-        0 0 0 7px rgba(255,255,255,0.10),
-
-        0 0 12px var(--bubble-color),
-
-        0 0 24px var(--bubble-color),
-
-        inset 0 0 12px rgba(255,255,255,0.18);
-}
-
-
-/* =========================================================
-   DISTRICT BUBBLE
-   ========================================================= */
-
-.district-bubble {
-
-    width: 52px;
-    height: 52px;
-
-    font-size: 12px;
-
-    box-shadow:
-
-        0 0 0 6px rgba(255,255,255,0.08),
+        0 0 0 5px rgba(255,255,255,0.08),
 
         0 0 10px var(--bubble-color),
 
         0 0 20px var(--bubble-color),
 
         inset 0 0 10px rgba(255,255,255,0.18);
+
+}
+
+
+/* =========================================================
+   GROUP BUBBLE
+   SMALLER
+   ========================================================= */
+
+.group-bubble {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    font-size:
+        11px;
+
+    box-shadow:
+
+        0 0 0 4px rgba(255,255,255,0.08),
+
+        0 0 8px var(--bubble-color),
+
+        0 0 16px var(--bubble-color),
+
+        inset 0 0 8px rgba(255,255,255,0.18);
+
+}
+
+
+/* =========================================================
+   DISTRICT BUBBLE
+   SMALLER
+   ========================================================= */
+
+.district-bubble {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    font-size:
+        10px;
+
+    box-shadow:
+
+        0 0 0 3px rgba(255,255,255,0.07),
+
+        0 0 7px var(--bubble-color),
+
+        0 0 14px var(--bubble-color),
+
+        inset 0 0 7px rgba(255,255,255,0.18);
+
 }
 
 
@@ -262,27 +336,38 @@ body {
 
 .map-back-button {
 
-    background: white;
+    background:
+        white;
 
-    border: 1px solid #333;
+    border:
+        1px solid #333;
 
-    border-radius: 7px;
+    border-radius:
+        7px;
 
-    padding: 7px 12px;
+    padding:
+        7px 12px;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
     box-shadow:
         0 2px 8px rgba(0,0,0,0.30);
+
 }
+
 
 .map-back-button:hover {
 
-    background: #f3f4f6;
+    background:
+        #f3f4f6;
+
 }
 
 
@@ -292,73 +377,111 @@ body {
 
 .risk-legend {
 
-    background: rgba(255,255,255,0.96);
+    background:
+        rgba(255,255,255,0.96);
 
-    border: 1px solid #333;
+    border:
+        1px solid #333;
 
-    border-radius: 9px;
+    border-radius:
+        9px;
 
-    padding: 9px 12px;
+    padding:
+        9px 12px;
 
     box-shadow:
         0 2px 8px rgba(0,0,0,0.28);
 
-    color: #111;
+    color:
+        #111;
 
-    font-size: 12px;
+    font-size:
+        12px;
 
-    min-width: 145px;
+    min-width:
+        145px;
+
 }
+
 
 .risk-legend-title {
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    margin-bottom: 7px;
+    margin-bottom:
+        7px;
+
 }
+
 
 .legend-row {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 7px;
+    gap:
+        7px;
 
-    margin: 4px 0;
+    margin:
+        4px 0;
+
 }
+
 
 .legend-color {
 
-    width: 17px;
-    height: 17px;
+    width:
+        17px;
 
-    border-radius: 50%;
+    height:
+        17px;
+
+    border-radius:
+        50%;
+
 }
+
 
 .legend-red {
-    background: #A61B1B;
+
+    background:
+        #A61B1B;
 
     box-shadow:
-        0 0 8px #A61B1B;
+        0 0 7px #A61B1B;
+
 }
+
 
 .legend-yellow {
-    background: #F9A825;
+
+    background:
+        #F9A825;
 
     box-shadow:
-        0 0 8px #F9A825;
+        0 0 7px #F9A825;
+
 }
 
+
 .legend-green {
-    background: #2E7D32;
+
+    background:
+        #2E7D32;
 
     box-shadow:
-        0 0 8px #2E7D32;
+        0 0 7px #2E7D32;
+
 }
 
 
@@ -370,66 +493,101 @@ body {
 
     .map-title {
 
-        font-size: 12px;
+        font-size:
+            12px;
 
-        padding: 6px 12px;
+        padding:
+            6px 12px;
+
     }
+
 
     .risk-legend {
 
-        min-width: 125px;
+        min-width:
+            125px;
 
-        font-size: 11px;
+        font-size:
+            11px;
+
     }
+
 
     .municipality-bubble {
 
-        width: 64px;
-        height: 64px;
+        width:
+            50px;
 
-        font-size: 13px;
+        height:
+            50px;
+
+        font-size:
+            11px;
+
     }
+
 
     .group-bubble {
 
-        width: 56px;
-        height: 56px;
+        width:
+            43px;
 
-        font-size: 12px;
+        height:
+            43px;
+
+        font-size:
+            10px;
+
     }
+
 
     .district-bubble {
 
-        width: 46px;
-        height: 46px;
+        width:
+            36px;
 
-        font-size: 11px;
+        height:
+            36px;
+
+        font-size:
+            9px;
+
     }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div id="map"></div>
 
+
 <div class="map-title">
+
     Municipality Incident Map
+
 </div>
+
 
 <div
     id="map-info"
     class="map-info"
 >
+
     Municipality Overview
+
 </div>
 
 
 <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
+
 
 <script
     src="https://unpkg.com/leaflet.control.layers.tree@1.1.0/L.Control.Layers.Tree.js">
@@ -442,65 +600,76 @@ body {
    MAP
    ========================================================= */
 
-const map = L.map("map", {
+const map = L.map(
 
-    maxZoom: 18,
-
-    zoomControl: true,
-
-    preferCanvas: true
-
-});
-
-
-/* =========================================================
-   BASE MAP
-   ========================================================= */
-
-const osm = L.tileLayer(
-
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "map",
 
     {
 
-        attribution:
-            "© OpenStreetMap contributors",
-
         maxZoom:
-            19,
+            18,
 
-        updateWhenIdle:
+        zoomControl:
             true,
 
-        keepBuffer:
-            2
+        preferCanvas:
+            true
 
     }
 
 );
 
 
-const satellite = L.tileLayer(
+/* =========================================================
+   BASE MAP
+   ========================================================= */
 
-    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+const osm =
+    L.tileLayer(
 
-    {
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 
-        maxZoom:
-            19,
+        {
 
-        attribution:
-            "Tiles © Esri",
+            attribution:
+                "© OpenStreetMap contributors",
 
-        updateWhenIdle:
-            true,
+            maxZoom:
+                19,
 
-        keepBuffer:
-            2
+            updateWhenIdle:
+                true,
 
-    }
+            keepBuffer:
+                2
 
-).addTo(map);
+        }
+
+    );
+
+
+const satellite =
+    L.tileLayer(
+
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+
+        {
+
+            maxZoom:
+                19,
+
+            attribution:
+                "Tiles © Esri",
+
+            updateWhenIdle:
+                true,
+
+            keepBuffer:
+                2
+
+        }
+
+    ).addTo(map);
 
 
 /* =========================================================
@@ -551,6 +720,7 @@ const municipalityBoundaryFeatures = {};
 
 const municipalityCenters = {};
 
+
 const municipalityIncidentRows = {
 
     Dammam: [],
@@ -558,6 +728,7 @@ const municipalityIncidentRows = {
     Khobar: []
 
 };
+
 
 const municipalityTotals = {
 
@@ -587,6 +758,8 @@ let selectedMunicipality = null;
 
 let selectedCluster = null;
 
+let selectedDistrictName = null;
+
 let currentClusters = [];
 
 
@@ -597,6 +770,7 @@ let currentClusters = [];
 const visualLayer =
     L.layerGroup().addTo(map);
 
+
 const labelLayer =
     L.layerGroup().addTo(map);
 
@@ -605,9 +779,12 @@ const labelLayer =
    MAP READY
    ========================================================= */
 
-let mapReady = false;
+let mapReady =
+    false;
 
-let pendingIncidentData = null;
+
+let pendingIncidentData =
+    null;
 
 
 /* =========================================================
@@ -659,7 +836,9 @@ function normalizeArabic(value) {
 function districtLookupKey(name) {
 
     return normalizeArabic(
+
         normalizeName(name)
+
     );
 
 }
@@ -675,6 +854,7 @@ function updateMapInfo(text) {
         document.getElementById(
             "map-info"
         );
+
 
     if (el) {
 
@@ -695,25 +875,36 @@ function getDistrictCount(name) {
     const key =
         districtLookupKey(name);
 
+
     if (
         districtNameLookup[key]
     ) {
 
         return Number(
-            districtNameLookup[key].count || 0
+
+            districtNameLookup[
+                key
+            ].count || 0
+
         );
 
     }
+
 
     if (
         districtCounts[name]
     ) {
 
         return Number(
-            districtCounts[name].count || 0
+
+            districtCounts[
+                name
+            ].count || 0
+
         );
 
     }
+
 
     return 0;
 
@@ -739,7 +930,10 @@ function pointInRing(
 
     }
 
-    let inside = false;
+
+    let inside =
+        false;
+
 
     for (
         let i = 0,
@@ -761,6 +955,7 @@ function pointInRing(
 
         const latJ =
             Number(ring[j][1]);
+
 
         const intersect =
 
@@ -786,13 +981,16 @@ function pointInRing(
 
             );
 
+
         if (intersect) {
 
-            inside = !inside;
+            inside =
+                !inside;
 
         }
 
     }
+
 
     return inside;
 
@@ -818,17 +1016,23 @@ function pointInPolygon(
 
     }
 
+
     if (
         !pointInRing(
+
             lat,
+
             lng,
+
             coordinates[0]
+
         )
     ) {
 
         return false;
 
     }
+
 
     for (
         let i = 1;
@@ -840,9 +1044,13 @@ function pointInPolygon(
 
         if (
             pointInRing(
+
                 lat,
+
                 lng,
+
                 coordinates[i]
+
             )
         ) {
 
@@ -851,6 +1059,7 @@ function pointInPolygon(
         }
 
     }
+
 
     return true;
 
@@ -876,20 +1085,28 @@ function pointInGeometry(
 
     }
 
+
     if (
-        geometry.type === "Polygon"
+        geometry.type ===
+        "Polygon"
     ) {
 
         return pointInPolygon(
+
             lat,
+
             lng,
+
             geometry.coordinates
+
         );
 
     }
 
+
     if (
-        geometry.type === "MultiPolygon"
+        geometry.type ===
+        "MultiPolygon"
     ) {
 
         return geometry.coordinates.some(
@@ -897,14 +1114,19 @@ function pointInGeometry(
             polygon =>
 
                 pointInPolygon(
+
                     lat,
+
                     lng,
+
                     polygon
+
                 )
 
         );
 
     }
+
 
     return false;
 
@@ -929,12 +1151,16 @@ function resolveMunicipalityByCoordinates(
 
     }
 
+
     for (
         const city of CITIES
     ) {
 
         const features =
-            municipalityBoundaryFeatures[city] || [];
+            municipalityBoundaryFeatures[
+                city
+            ] || [];
+
 
         for (
             const feature of features
@@ -942,9 +1168,13 @@ function resolveMunicipalityByCoordinates(
 
             if (
                 pointInGeometry(
+
                     lat,
+
                     lng,
+
                     feature.geometry
+
                 )
             ) {
 
@@ -955,6 +1185,7 @@ function resolveMunicipalityByCoordinates(
         }
 
     }
+
 
     return null;
 
@@ -986,12 +1217,17 @@ function distanceSquared(
 
         );
 
+
     const dy =
         lat1 - lat2;
 
+
     return (
+
         dx * dx +
+
         dy * dy
+
     );
 
 }
@@ -1015,17 +1251,24 @@ function resolveMunicipalityFallback(
 
     }
 
-    let bestCity = null;
+
+    let bestCity =
+        null;
+
 
     let bestDistance =
         Infinity;
+
 
     CITIES.forEach(
 
         city => {
 
             const center =
-                municipalityCenters[city];
+                municipalityCenters[
+                    city
+                ];
+
 
             if (!center) {
 
@@ -1033,16 +1276,20 @@ function resolveMunicipalityFallback(
 
             }
 
+
             const distance =
                 distanceSquared(
 
                     lat,
+
                     lng,
 
                     center.lat,
+
                     center.long
 
                 );
+
 
             if (
                 distance <
@@ -1061,6 +1308,7 @@ function resolveMunicipalityFallback(
 
     );
 
+
     return bestCity;
 
 }
@@ -1077,16 +1325,23 @@ function resolveMunicipality(
 ) {
 
     const cleanName =
-        String(name || "").trim();
+        String(
+            name || ""
+        ).trim();
+
 
     if (
-        districtToCity[cleanName]
+        districtToCity[
+            cleanName
+        ]
     ) {
 
         return {
 
             city:
-                districtToCity[cleanName],
+                districtToCity[
+                    cleanName
+                ],
 
             method:
                 "district"
@@ -1095,12 +1350,16 @@ function resolveMunicipality(
 
     }
 
+
     const lookup =
         districtNameLookup[
+
             districtLookupKey(
                 cleanName
             )
+
         ];
+
 
     if (
         lookup &&
@@ -1119,11 +1378,16 @@ function resolveMunicipality(
 
     }
 
+
     const boundaryCity =
         resolveMunicipalityByCoordinates(
+
             lat,
+
             lng
+
         );
+
 
     if (boundaryCity) {
 
@@ -1139,11 +1403,16 @@ function resolveMunicipality(
 
     }
 
+
     const fallbackCity =
         resolveMunicipalityFallback(
+
             lat,
+
             lng
+
         );
+
 
     if (fallbackCity) {
 
@@ -1159,6 +1428,7 @@ function resolveMunicipality(
 
     }
 
+
     return {
 
         city:
@@ -1173,84 +1443,146 @@ function resolveMunicipality(
 
 
 /* =========================================================
-   NEW:
-   SAME HIGHEST / MIDDLE / LOWEST RULE
-   USED AT EVERY LEVEL
+   UNIVERSAL RANKING COLOR
+
+   HIGHEST  = RED
+   MIDDLE   = YELLOW
+   LOWEST   = GREEN
+   ZERO     = NO DATA
    ========================================================= */
 
-function getRelativeRiskColor(
+function getRankedColor(
     count,
-    items
+    rows
 ) {
 
     const value =
-        Number(count || 0);
+        Number(
+            count || 0
+        );
 
-    if (value <= 0) {
+
+    if (
+        value <= 0
+    ) {
 
         return NO_DATA;
 
     }
 
+
     const values =
 
-        (items || [])
+        (rows || [])
 
             .map(
-                item =>
+
+                row =>
                     Number(
-                        item.count || 0
+                        row.count || 0
                     )
+
             )
 
             .filter(
-                v => v > 0
+
+                value =>
+                    value > 0
+
+            )
+
+            .sort(
+
+                (a,b) =>
+                    a - b
+
             );
 
-    if (!values.length) {
+
+    if (
+        !values.length
+    ) {
 
         return GREEN;
 
     }
+
 
     const uniqueValues =
-        [...new Set(values)].sort(
-            (a,b) => a - b
-        );
+        [...new Set(values)];
 
-    const min =
-        uniqueValues[0];
 
-    const max =
-        uniqueValues[
-            uniqueValues.length - 1
-        ];
-
-    /* All counts equal */
-
-    if (min === max) {
+    if (
+        uniqueValues.length === 1
+    ) {
 
         return GREEN;
 
     }
 
-    /* Highest */
 
-    if (value === max) {
+    const n =
+        values.length;
+
+
+    /*
+       TWO ITEMS
+    */
+
+    if (
+        n === 2
+    ) {
+
+        if (
+            value === values[1]
+        ) {
+
+            return DARK_RED;
+
+        }
+
+        return GREEN;
+
+    }
+
+
+    /*
+       RANK POSITION
+    */
+
+    const rank =
+        values.indexOf(value);
+
+
+    const lowEnd =
+        Math.floor(
+            (n - 1) / 3
+        );
+
+
+    const highStart =
+        Math.ceil(
+            (2 * (n - 1)) / 3
+        );
+
+
+    if (
+        rank <= lowEnd
+    ) {
+
+        return GREEN;
+
+    }
+
+
+    if (
+        rank >= highStart
+    ) {
 
         return DARK_RED;
 
     }
 
-    /* Lowest */
-
-    if (value === min) {
-
-        return GREEN;
-
-    }
-
-    /* Everything between */
 
     return YELLOW;
 
@@ -1259,14 +1591,14 @@ function getRelativeRiskColor(
 
 /* =========================================================
    MUNICIPALITY COLOR
-   NOW USES SAME RULE
    ========================================================= */
 
 function getMunicipalityColor(
     city
 ) {
 
-    const items =
+    const rows =
+
         CITIES.map(
 
             c => ({
@@ -1276,103 +1608,25 @@ function getMunicipalityColor(
 
                 count:
                     Number(
-                        municipalityTotals[c] || 0
+                        municipalityTotals[
+                            c
+                        ] || 0
                     )
 
             })
 
         );
 
-    return getRelativeRiskColor(
 
-        municipalityTotals[city],
+    return getRankedColor(
 
-        items
+        municipalityTotals[
+            city
+        ],
+
+        rows
 
     );
-
-}
-
-
-/* =========================================================
-   CLASSIFY COUNTS
-   ========================================================= */
-
-function classifyCounts(
-    rows
-) {
-
-    const values =
-
-        (rows || [])
-
-            .map(
-                row =>
-                    Number(
-                        row.count || 0
-                    )
-            )
-
-            .filter(
-                value =>
-                    value > 0
-            )
-
-            .sort(
-                (a,b) =>
-                    a - b
-            );
-
-    if (
-        !values.length
-    ) {
-
-        return {
-
-            min:
-                0,
-
-            max:
-                0,
-
-            low:
-                0,
-
-            high:
-                0
-
-        };
-
-    }
-
-    const n =
-        values.length;
-
-    return {
-
-        min:
-            values[0],
-
-        max:
-            values[n - 1],
-
-        low:
-            values[
-                Math.floor(
-                    (n - 1) / 3
-                )
-            ],
-
-        high:
-            values[
-                Math.floor(
-                    2 *
-                    (n - 1) /
-                    3
-                )
-            ]
-
-    };
 
 }
 
@@ -1394,21 +1648,34 @@ function getCentroid(
 
     }
 
-    let lat = 0;
 
-    let lng = 0;
+    let lat =
+        0;
 
-    let total = 0;
+
+    let lng =
+        0;
+
+
+    let total =
+        0;
+
 
     items.forEach(
 
         item => {
 
             const a =
-                Number(item.lat);
+                Number(
+                    item.lat
+                );
+
 
             const b =
-                Number(item.lng);
+                Number(
+                    item.lng
+                );
+
 
             if (
                 Number.isFinite(a) &&
@@ -1427,11 +1694,15 @@ function getCentroid(
 
     );
 
-    if (!total) {
+
+    if (
+        !total
+    ) {
 
         return null;
 
     }
+
 
     return {
 
@@ -1447,7 +1718,7 @@ function getCentroid(
 
 
 /* =========================================================
-   NEW COUNT BUBBLE LABEL
+   COUNT BUBBLE CREATOR
    ========================================================= */
 
 function createCountBubbleLabel(
@@ -1468,6 +1739,7 @@ function createCountBubbleLabel(
 
     }
 
+
     const marker =
         L.marker(
 
@@ -1486,7 +1758,10 @@ function createCountBubbleLabel(
 
                             `<div
                                 class="count-bubble ${bubbleClass}"
-                                style="--bubble-color:${color}; background:${color};"
+                                style="
+                                    --bubble-color:${color};
+                                    background:${color};
+                                "
                              >
                                 ${String(text)}
                              </div>`,
@@ -1499,6 +1774,7 @@ function createCountBubbleLabel(
 
                     }),
 
+
                 zIndexOffset:
                     3000
 
@@ -1506,18 +1782,24 @@ function createCountBubbleLabel(
 
         );
 
+
     if (clickHandler) {
 
         marker.on(
+
             "click",
+
             clickHandler
+
         );
 
     }
 
+
     labelLayer.addLayer(
         marker
     );
+
 
     return marker;
 
@@ -1533,17 +1815,27 @@ function cityDistrictItems(
 ) {
 
     if (
-        cityDistrictCache[city]
+        cityDistrictCache[
+            city
+        ]
     ) {
 
-        return cityDistrictCache[city];
+        return cityDistrictCache[
+            city
+        ];
 
     }
 
-    const rows =
-        municipalityIncidentRows[city] || [];
 
-    const byKey = {};
+    const rows =
+        municipalityIncidentRows[
+            city
+        ] || [];
+
+
+    const byKey =
+        {};
+
 
     rows.forEach(
 
@@ -1551,10 +1843,15 @@ function cityDistrictItems(
 
             const rawName =
                 String(
+
                     row.name ||
+
                     row.state ||
+
                     ""
+
                 ).trim();
+
 
             if (!rawName) {
 
@@ -1562,12 +1859,16 @@ function cityDistrictItems(
 
             }
 
+
             const lookup =
                 districtNameLookup[
+
                     districtLookupKey(
                         rawName
                     )
+
                 ];
+
 
             const districtName =
 
@@ -1578,16 +1879,23 @@ function cityDistrictItems(
 
                     : rawName;
 
+
             const key =
                 districtLookupKey(
                     districtName
                 );
 
+
             let lat =
-                Number(row.lat);
+                Number(
+                    row.lat
+                );
+
 
             let lng =
-                Number(row.lng);
+                Number(
+                    row.lng
+                );
 
 
             if (
@@ -1600,6 +1908,7 @@ function cityDistrictItems(
                         districtName
                     ];
 
+
                 if (
                     layer &&
                     layer.getBounds().isValid()
@@ -1610,8 +1919,10 @@ function cityDistrictItems(
                             .getBounds()
                             .getCenter();
 
+
                     lat =
                         center.lat;
+
 
                     lng =
                         center.lng;
@@ -1633,11 +1944,15 @@ function cityDistrictItems(
 
             const count =
                 Number(
+
                     row.count ||
+
                     getDistrictCount(
                         districtName
                     ) ||
+
                     0
+
                 );
 
 
@@ -1666,13 +1981,18 @@ function cityDistrictItems(
 
     );
 
+
     const result =
         Object.values(
             byKey
         );
 
-    cityDistrictCache[city] =
+
+    cityDistrictCache[
+        city
+    ] =
         result;
+
 
     return result;
 
@@ -1680,7 +2000,7 @@ function cityDistrictItems(
 
 
 /* =========================================================
-   THREE GEOGRAPHIC GROUPS
+   CREATE THREE GROUPS
    ========================================================= */
 
 function createThreeGroups(
@@ -1696,11 +2016,13 @@ function createThreeGroups(
 
     }
 
+
     if (
         rows.length <= 3
     ) {
 
         return rows.map(
+
             (row,index) => ({
 
                 index,
@@ -1714,14 +2036,17 @@ function createThreeGroups(
                     )
 
             })
+
         );
 
     }
+
 
     const center =
         getCentroid(
             rows
         );
+
 
     if (!center) {
 
@@ -1729,10 +2054,12 @@ function createThreeGroups(
 
     }
 
+
     const sorted =
         rows
             .slice()
             .sort(
+
                 (a,b) => {
 
                     const angleA =
@@ -1746,6 +2073,7 @@ function createThreeGroups(
 
                         );
 
+
                     const angleB =
                         Math.atan2(
 
@@ -1757,24 +2085,30 @@ function createThreeGroups(
 
                         );
 
+
                     return (
                         angleA -
                         angleB
                     );
 
                 }
+
             );
+
 
     const total =
         sorted.length;
+
 
     const base =
         Math.floor(
             total / 3
         );
 
+
     const remainder =
         total % 3;
+
 
     const sizes = [
 
@@ -1796,9 +2130,14 @@ function createThreeGroups(
 
     ];
 
-    const groups = [];
 
-    let start = 0;
+    const groups =
+        [];
+
+
+    let start =
+        0;
+
 
     for (
         let i = 0;
@@ -1817,6 +2156,7 @@ function createThreeGroups(
                 sizes[i]
 
             );
+
 
         if (
             items.length
@@ -1838,6 +2178,7 @@ function createThreeGroups(
                         ) =>
 
                             sum +
+
                             Number(
                                 item.count || 0
                             ),
@@ -1850,10 +2191,12 @@ function createThreeGroups(
 
         }
 
+
         start +=
             sizes[i];
 
     }
+
 
     return groups;
 
@@ -1869,25 +2212,35 @@ function getCityGroups(
 ) {
 
     if (
-        cityGroupCache[city]
+        cityGroupCache[
+            city
+        ]
     ) {
 
-        return cityGroupCache[city];
+        return cityGroupCache[
+            city
+        ];
 
     }
+
 
     const rows =
         cityDistrictItems(
             city
         );
 
+
     const groups =
         createThreeGroups(
             rows
         );
 
-    cityGroupCache[city] =
+
+    cityGroupCache[
+        city
+    ] =
         groups;
+
 
     return groups;
 
@@ -1895,7 +2248,7 @@ function getCityGroups(
 
 
 /* =========================================================
-   MUNICIPALITY BOUNDARY STYLE
+   MUNICIPALITY STYLE
    ========================================================= */
 
 function getMunicipalityStyle(
@@ -1906,6 +2259,7 @@ function getMunicipalityStyle(
         getMunicipalityColor(
             city
         );
+
 
     return {
 
@@ -1930,7 +2284,7 @@ function getMunicipalityStyle(
 
 
 /* =========================================================
-   DISTRICT GROUP STYLE
+   GROUP DISTRICT STYLE
    ========================================================= */
 
 function setGroupDistrictStyle(
@@ -1945,11 +2299,13 @@ function setGroupDistrictStyle(
             districtName
         ];
 
+
     if (!layer) {
 
         return;
 
     }
+
 
     layer.setStyle({
 
@@ -1975,9 +2331,11 @@ function setGroupDistrictStyle(
         "mouseover"
     );
 
+
     layer.off(
         "mouseout"
     );
+
 
     layer.off(
         "click"
@@ -2067,7 +2425,6 @@ function setGroupDistrictStyle(
 
 /* =========================================================
    GROUP LABEL
-   NOW WITH COLORED BUBBLE
    ========================================================= */
 
 function addGroupLabel(
@@ -2081,11 +2438,13 @@ function addGroupLabel(
             group.items
         );
 
+
     if (!center) {
 
         return;
 
     }
+
 
     createCountBubbleLabel(
 
@@ -2104,119 +2463,12 @@ function addGroupLabel(
         function() {
 
             showDistrictLevel(
+
                 group,
+
                 city
+
             );
-
-        }
-
-    );
-
-}
-
-
-/* =========================================================
-   DISTRICT RISK STYLE
-   ========================================================= */
-
-function styleDistrictRisk(
-    item,
-    stats,
-    allRows
-) {
-
-    const layer =
-        districtLayers[
-            item.name
-        ];
-
-    if (!layer) {
-
-        return;
-
-    }
-
-    const color =
-        getRelativeRiskColor(
-
-            item.count,
-
-            allRows
-
-        );
-
-
-    layer.setStyle({
-
-        color:
-            "rgba(255,255,255,0.85)",
-
-        weight:
-            1.2,
-
-        opacity:
-            0.95,
-
-        fillColor:
-            color,
-
-        fillOpacity:
-            0.58
-
-    });
-
-
-    layer.off(
-        "mouseover"
-    );
-
-    layer.off(
-        "mouseout"
-    );
-
-
-    layer.on(
-
-        "mouseover",
-
-        function() {
-
-            layer.setStyle({
-
-                weight:
-                    2.5,
-
-                fillColor:
-                    color,
-
-                fillOpacity:
-                    0.64
-
-            });
-
-        }
-
-    );
-
-
-    layer.on(
-
-        "mouseout",
-
-        function() {
-
-            layer.setStyle({
-
-                weight:
-                    1.2,
-
-                fillColor:
-                    color,
-
-                fillOpacity:
-                    0.58
-
-            });
 
         }
 
@@ -2239,7 +2491,7 @@ function clearVisuals() {
 
 
 /* =========================================================
-   HIDE DISTRICTS
+   HIDE ALL DISTRICTS
    ========================================================= */
 
 function hideAllDistrictLayers() {
@@ -2247,10 +2499,14 @@ function hideAllDistrictLayers() {
     Object.keys(
         districtLayers
     ).forEach(
+
         name => {
 
             const layer =
-                districtLayers[name];
+                districtLayers[
+                    name
+                ];
+
 
             if (
                 layer &&
@@ -2264,33 +2520,7 @@ function hideAllDistrictLayers() {
             }
 
         }
-    );
 
-}
-
-
-/* =========================================================
-   BOUNDARIES
-   ========================================================= */
-
-function ensureMunicipalityBoundaries() {
-
-    CITIES.forEach(
-        city => {
-
-            const layer =
-                municipalityBoundaryLayers[
-                    city
-                ];
-
-            if (
-                layer &&
-                !map.hasLayer(layer)
-            ) {
-
-            }
-
-        }
     );
 
 }
@@ -2306,25 +2536,35 @@ function showMunicipalityOverview() {
     drillLevel =
         0;
 
+
     selectedMunicipality =
         null;
+
 
     selectedCluster =
         null;
 
+
+    selectedDistrictName =
+        null;
+
+
     currentClusters =
         [];
 
+
     clearVisuals();
+
 
     hideAllDistrictLayers();
 
 
     /* =====================================================
-       MUNICIPALITY POLYGON COLORS
+       MUNICIPALITY POLYGON COLOR
        ===================================================== */
 
     CITIES.forEach(
+
         city => {
 
             const boundary =
@@ -2332,16 +2572,19 @@ function showMunicipalityOverview() {
                     city
                 ];
 
+
             if (!boundary) {
 
                 return;
 
             }
 
+
             const color =
                 getMunicipalityColor(
                     city
                 );
+
 
             boundary.setStyle({
 
@@ -2363,6 +2606,7 @@ function showMunicipalityOverview() {
             });
 
         }
+
     );
 
 
@@ -2371,6 +2615,7 @@ function showMunicipalityOverview() {
        ===================================================== */
 
     CITIES.forEach(
+
         city => {
 
             const rows =
@@ -2378,8 +2623,10 @@ function showMunicipalityOverview() {
                     city
                 ] || [];
 
+
             const validRows =
                 rows.filter(
+
                     row =>
 
                         Number.isFinite(
@@ -2391,6 +2638,7 @@ function showMunicipalityOverview() {
                         Number.isFinite(
                             Number(row.lng)
                         )
+
                 );
 
 
@@ -2407,6 +2655,7 @@ function showMunicipalityOverview() {
                         city
                     ];
 
+
                 if (
                     boundary &&
                     boundary.getBounds().isValid()
@@ -2416,6 +2665,7 @@ function showMunicipalityOverview() {
                         boundary
                             .getBounds()
                             .getCenter();
+
 
                     center = {
 
@@ -2441,9 +2691,11 @@ function showMunicipalityOverview() {
 
             const count =
                 Number(
+
                     municipalityTotals[
                         city
                     ] || 0
+
                 );
 
 
@@ -2452,10 +2704,6 @@ function showMunicipalityOverview() {
                     city
                 );
 
-
-            /* =================================================
-               NEW GLOWING BUBBLE
-               ================================================= */
 
             createCountBubbleLabel(
 
@@ -2479,80 +2727,14 @@ function showMunicipalityOverview() {
 
             );
 
-
-            /* =================================================
-               TOOLTIP
-               ================================================= */
-
-            const labels =
-                labelLayer.getLayers();
-
-            const marker =
-                labels[
-                    labels.length - 1
-                ];
-
-
-            if (marker) {
-
-                const riskText =
-
-                    color === DARK_RED
-
-                        ? "High"
-
-                        : color === YELLOW
-
-                            ? "Medium"
-
-                            : color === GREEN
-
-                                ? "Low"
-
-                                : "No Data";
-
-
-                marker.bindTooltip(
-
-                    `
-                    <b>Municipality:</b>
-                    ${city}
-                    <br>
-                    <b>Total Incidents:</b>
-                    ${count.toLocaleString()}
-                    <br>
-                    <b>Color:</b>
-                    ${riskText}
-                    <br><br>
-                    <b>Click to drill down</b>
-                    `,
-
-                    {
-
-                        direction:
-                            "top",
-
-                        sticky:
-                            true,
-
-                        opacity:
-                            0.95,
-
-                        className:
-                            "custom-tooltip"
-
-                    }
-
-                );
-
-            }
-
         }
+
     );
 
 
     /* =====================================================
        FIT ALL MUNICIPALITIES
+       LITTLE MORE ZOOM
        ===================================================== */
 
     const boundaries =
@@ -2560,10 +2742,12 @@ function showMunicipalityOverview() {
         CITIES
 
             .map(
+
                 city =>
                     municipalityBoundaryLayers[
                         city
                     ]
+
             )
 
             .filter(Boolean);
@@ -2590,10 +2774,10 @@ function showMunicipalityOverview() {
                 {
 
                     padding:
-                        [35,35],
+                        [20,20],
 
                     maxZoom:
-                        12,
+                        13,
 
                     animate:
                         false
@@ -2635,12 +2819,13 @@ function showMunicipalityOverview() {
 
 /* =========================================================
    LEVEL 2
-   MUNICIPALITY → 3 GROUPS
+   MUNICIPALITY → GROUPS
 
-   IMPORTANT:
-   Highest group = RED
-   Middle group  = YELLOW
-   Lowest group  = GREEN
+   GROUP TOTALS ARE RANKED
+
+   HIGHEST = RED
+   MIDDLE  = YELLOW
+   LOWEST  = GREEN
    ========================================================= */
 
 function showMunicipality(
@@ -2650,13 +2835,21 @@ function showMunicipality(
     drillLevel =
         1;
 
+
     selectedMunicipality =
         city;
+
 
     selectedCluster =
         null;
 
+
+    selectedDistrictName =
+        null;
+
+
     clearVisuals();
+
 
     hideAllDistrictLayers();
 
@@ -2672,30 +2865,41 @@ function showMunicipality(
 
 
     /* =====================================================
-       GROUP COLORS BASED ON TOTAL
+       GROUP COLOR BASED ON TOTAL
        ===================================================== */
 
     groups.forEach(
 
         group => {
 
+            const comparisonRows =
+
+                groups.map(
+
+                    g => ({
+
+                        count:
+                            Number(
+                                g.total || 0
+                            )
+
+                    })
+
+                );
+
+
             const groupColor =
-                getRelativeRiskColor(
+                getRankedColor(
 
                     group.total,
 
-                    groups.map(
-                        g => ({
-                            count:
-                                g.total
-                        })
-                    )
+                    comparisonRows
 
                 );
 
 
             /* =================================================
-               COLOR ALL DISTRICTS INSIDE GROUP
+               DISTRICT POLYGONS INSIDE GROUP
                ================================================= */
 
             group.items.forEach(
@@ -2720,7 +2924,7 @@ function showMunicipality(
 
 
             /* =================================================
-               GROUP COUNT BUBBLE
+               GROUP BUBBLE
                ================================================= */
 
             addGroupLabel(
@@ -2760,10 +2964,10 @@ function showMunicipality(
             {
 
                 padding:
-                    [50,50],
+                    [35,35],
 
                 maxZoom:
-                    13,
+                    14,
 
                 animate:
                     false
@@ -2781,7 +2985,7 @@ function showMunicipality(
         <b>LEVEL 2</b> —
         ${city}
         |
-        3 Geographic Groups
+        Geographic Groups
         |
         Click a group count
         `
@@ -2801,7 +3005,7 @@ function showMunicipality(
     if (title) {
 
         title.innerHTML =
-            `${city} — 3 Geographic Groups`;
+            `${city} — Geographic Groups`;
 
     }
 
@@ -2839,8 +3043,87 @@ function resetGrafanaVariable(
 
 
 /* =========================================================
+   DISTRICT CLICK
+   ========================================================= */
+
+function handleDistrictClick(
+    item,
+    city
+) {
+
+    /* =====================================================
+       SAME DISTRICT CLICKED AGAIN
+
+       GO BACK ONE LEVEL ONLY
+       ===================================================== */
+
+    if (
+        selectedDistrictName ===
+        item.name
+    ) {
+
+        selectedDistrictName =
+            null;
+
+
+        resetGrafanaVariable(
+            city
+        );
+
+
+        showMunicipality(
+            city
+        );
+
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       FIRST CLICK
+
+       FILTER DASHBOARD
+       ===================================================== */
+
+    selectedDistrictName =
+        item.name;
+
+
+    window.parent.postMessage(
+
+        {
+
+            type:
+                "mapClick",
+
+            state:
+                item.name,
+
+            municipality:
+                city,
+
+            lat:
+                item.lat,
+
+            long:
+                item.lng
+
+        },
+
+        "*"
+
+    );
+
+}
+
+
+/* =========================================================
    LEVEL 3
    GROUP → DISTRICTS
+
+   SAME RANKING RULE AGAIN
    ========================================================= */
 
 function showDistrictLevel(
@@ -2851,10 +3134,13 @@ function showDistrictLevel(
     drillLevel =
         2;
 
+
     selectedCluster =
         group;
 
+
     clearVisuals();
+
 
     hideAllDistrictLayers();
 
@@ -2866,30 +3152,43 @@ function showDistrictLevel(
     if (!rows.length) {
 
         updateMapInfo(
+
             `${city} — No district data`
+
         );
 
+
         updateBackButton();
+
 
         return;
 
     }
 
 
-    const stats =
-        classifyCounts(
-            rows
+    /* =====================================================
+       DISTRICT COLORS
+
+       HIGHEST = RED
+       MIDDLE  = YELLOW
+       LOWEST  = GREEN
+       ===================================================== */
+
+    const comparisonRows =
+
+        rows.map(
+
+            item => ({
+
+                count:
+                    Number(
+                        item.count || 0
+                    )
+
+            })
+
         );
 
-
-    /* =====================================================
-       DISTRICTS
-       SAME RULE:
-
-       Highest = RED
-       Middle  = YELLOW
-       Lowest  = GREEN
-       ===================================================== */
 
     rows.forEach(
 
@@ -2908,23 +3207,12 @@ function showDistrictLevel(
             }
 
 
-            styleDistrictRisk(
-
-                item,
-
-                stats,
-
-                rows
-
-            );
-
-
             const riskColor =
-                getRelativeRiskColor(
+                getRankedColor(
 
                     item.count,
 
-                    rows
+                    comparisonRows
 
                 );
 
@@ -2945,6 +3233,162 @@ function showDistrictLevel(
 
                             : "No Data";
 
+
+            /* =================================================
+               DISTRICT POLYGON
+               ================================================= */
+
+            layer.setStyle({
+
+                color:
+                    "rgba(255,255,255,0.85)",
+
+                weight:
+                    1.2,
+
+                opacity:
+                    0.95,
+
+                fillColor:
+                    riskColor,
+
+                fillOpacity:
+                    0.58
+
+            });
+
+
+            layer.off(
+                "mouseover"
+            );
+
+
+            layer.off(
+                "mouseout"
+            );
+
+
+            layer.off(
+                "click"
+            );
+
+
+            layer.on(
+
+                "mouseover",
+
+                function() {
+
+                    layer.setStyle({
+
+                        weight:
+                            2.5,
+
+                        fillColor:
+                            riskColor,
+
+                        fillOpacity:
+                            0.64
+
+                    });
+
+                }
+
+            );
+
+
+            layer.on(
+
+                "mouseout",
+
+                function() {
+
+                    layer.setStyle({
+
+                        weight:
+                            1.2,
+
+                        fillColor:
+                            riskColor,
+
+                        fillOpacity:
+                            0.58
+
+                    });
+
+                }
+
+            );
+
+
+            /* =================================================
+               CLICK POLYGON
+               ================================================= */
+
+            layer.on(
+
+                "click",
+
+                function() {
+
+                    handleDistrictClick(
+
+                        item,
+
+                        city
+
+                    );
+
+                }
+
+            );
+
+
+            if (
+                !map.hasLayer(layer)
+            ) {
+
+                layer.addTo(map);
+
+            }
+
+
+            /* =================================================
+               DISTRICT BUBBLE
+               ================================================= */
+
+            createCountBubbleLabel(
+
+                item.lat,
+
+                item.lng,
+
+                Number(
+                    item.count || 0
+                ).toLocaleString(),
+
+                "district-bubble",
+
+                riskColor,
+
+                function() {
+
+                    handleDistrictClick(
+
+                        item,
+
+                        city
+
+                    );
+
+                }
+
+            );
+
+
+            /* =================================================
+               TOOLTIP
+               ================================================= */
 
             layer.unbindTooltip();
 
@@ -2980,106 +3424,6 @@ function showDistrictLevel(
 
                     className:
                         "custom-tooltip"
-
-                }
-
-            );
-
-
-            layer.off(
-                "click"
-            );
-
-
-            layer.on(
-
-                "click",
-
-                function() {
-
-                    window.parent.postMessage(
-
-                        {
-
-                            type:
-                                "mapClick",
-
-                            state:
-                                item.name,
-
-                            municipality:
-                                city,
-
-                            lat:
-                                item.lat,
-
-                            long:
-                                item.lng
-
-                        },
-
-                        "*"
-
-                    );
-
-                }
-
-            );
-
-
-            if (
-                !map.hasLayer(layer)
-            ) {
-
-                layer.addTo(map);
-
-            }
-
-
-            /* =================================================
-               DISTRICT COUNT BUBBLE
-               ================================================= */
-
-            createCountBubbleLabel(
-
-                item.lat,
-
-                item.lng,
-
-                Number(
-                    item.count || 0
-                ).toLocaleString(),
-
-                "district-bubble",
-
-                riskColor,
-
-                function() {
-
-                    window.parent.postMessage(
-
-                        {
-
-                            type:
-                                "mapClick",
-
-                            state:
-                                item.name,
-
-                            municipality:
-                                city,
-
-                            lat:
-                                item.lat,
-
-                            long:
-                                item.lng
-
-                        },
-
-                        "*"
-
-                    );
 
                 }
 
@@ -3148,7 +3492,7 @@ function showDistrictLevel(
                 {
 
                     padding:
-                        [60,60],
+                        [40,40],
 
                     maxZoom:
                         16,
@@ -3174,6 +3518,8 @@ function showDistrictLevel(
         Group ${(Number(group.index) || 0) + 1}
         |
         Actual Districts
+        |
+        Click district to filter
         `
 
     );
@@ -3208,8 +3554,11 @@ function showSecondLevel(
 ) {
 
     showDistrictLevel(
+
         group,
+
         city
+
     );
 
 }
@@ -3285,21 +3634,29 @@ function handleBack() {
 
     /* =====================================================
        LEVEL 3 → LEVEL 2
-
-       RESET SELECTED DISTRICT VARIABLE TO ALL
        ===================================================== */
 
     if (
         drillLevel === 2
     ) {
 
+        selectedDistrictName =
+            null;
+
+
         resetGrafanaVariable(
+
             selectedMunicipality
+
         );
 
+
         showMunicipality(
+
             selectedMunicipality
+
         );
+
 
         return;
 
@@ -3308,19 +3665,23 @@ function handleBack() {
 
     /* =====================================================
        LEVEL 2 → LEVEL 1
-
-       RESET SELECTED VARIABLE TO ALL
        ===================================================== */
 
     if (
         drillLevel === 1
     ) {
 
+        selectedDistrictName =
+            null;
+
+
         resetGrafanaVariable(
             null
         );
 
+
         showMunicipalityOverview();
+
 
         return;
 
@@ -3357,6 +3718,7 @@ function updateBackButton() {
 
         button.style.display =
             "none";
+
 
         return;
 
@@ -3413,13 +3775,19 @@ function districtInitialStyle(
             0.75,
 
         fillColor:
+
             count > 0
+
                 ? GREEN
+
                 : NO_DATA,
 
         fillOpacity:
+
             count > 0
+
                 ? 0.18
+
                 : 0.03
 
     };
@@ -3485,9 +3853,11 @@ function makeDistrictNodes(
 
 
                 districtNameLookup[
+
                     districtLookupKey(
                         districtName
                     )
+
                 ] = {
 
                     name:
@@ -3512,9 +3882,13 @@ function makeDistrictNodes(
                         {
 
                             style:
+
                                 districtInitialStyle(
+
                                     city,
+
                                     districtName
+
                                 ),
 
                             interactive:
@@ -3669,7 +4043,7 @@ Promise.all(
                     }
 
 
-                    /* Arabic names */
+                    /* Arabic */
 
                     if (
                         !city &&
@@ -3739,6 +4113,7 @@ Promise.all(
                             {
 
                                 style:
+
                                     getMunicipalityStyle(
                                         city
                                     )
@@ -3920,6 +4295,9 @@ Promise.all(
 
         /* =================================================
            LAYER CONTROL
+
+           COLLAPSED INITIALLY
+           CLIENT OPENS WHEN NEEDED
            ================================================= */
 
         const overlaysTree = {
@@ -4080,8 +4458,13 @@ Promise.all(
 
             {
 
+                /*
+                   IMPORTANT:
+                   CONTROL STARTS COLLAPSED
+                */
+
                 collapsed:
-                    false,
+                    true,
 
                 namedToggle:
                     true,
@@ -4135,18 +4518,39 @@ Promise.all(
                     </div>
 
                     <div class="legend-row">
-                        <span class="legend-color legend-green"></span>
-                        <span>Low</span>
+
+                        <span
+                            class="legend-color legend-green">
+                        </span>
+
+                        <span>
+                            Low
+                        </span>
+
                     </div>
 
                     <div class="legend-row">
-                        <span class="legend-color legend-yellow"></span>
-                        <span>Medium</span>
+
+                        <span
+                            class="legend-color legend-yellow">
+                        </span>
+
+                        <span>
+                            Medium
+                        </span>
+
                     </div>
 
                     <div class="legend-row">
-                        <span class="legend-color legend-red"></span>
-                        <span>High</span>
+
+                        <span
+                            class="legend-color legend-red">
+                        </span>
+
+                        <span>
+                            High
+                        </span>
+
                     </div>
 
                 `;
@@ -4177,6 +4581,7 @@ Promise.all(
             applyIncidentData(
                 pendingIncidentData
             );
+
 
             pendingIncidentData =
                 null;
@@ -4212,12 +4617,18 @@ Promise.all(
     error => {
 
         console.error(
+
             "GeoJSON loading error:",
+
             error
+
         );
 
+
         updateMapInfo(
+
             "Unable to load map data"
+
         );
 
     }
@@ -4227,47 +4638,86 @@ Promise.all(
 
 /* =========================================================
    APPLY INCIDENT DATA
+
+   IMPORTANT:
+   PRESERVES CURRENT DRILL LEVEL
    ========================================================= */
 
 function applyIncidentData(
     rows
 ) {
 
+    /* =====================================================
+       SAVE CURRENT STATE
+       ===================================================== */
+
+    const previousLevel =
+        drillLevel;
+
+
+    const previousMunicipality =
+        selectedMunicipality;
+
+
+    const previousCluster =
+        selectedCluster;
+
+
+    const previousDistrict =
+        selectedDistrictName;
+
 
     /* =====================================================
-       RESET
+       RESET DATA ONLY
        ===================================================== */
 
     Object.keys(
         districtCounts
     ).forEach(
+
         key =>
             delete districtCounts[key]
+
     );
 
 
     Object.keys(
         districtNameLookup
     ).forEach(
+
         key =>
             delete districtNameLookup[key]
+
     );
 
 
     CITIES.forEach(
+
         city => {
 
-            municipalityTotals[city] =
+            municipalityTotals[
+                city
+            ] =
                 0;
 
-            municipalityIncidentRows[city] =
+
+            municipalityIncidentRows[
+                city
+            ] =
                 [];
 
-            delete cityDistrictCache[city];
 
-            delete cityGroupCache[city];
+            delete cityDistrictCache[
+                city
+            ];
+
+
+            delete cityGroupCache[
+                city
+            ];
 
         }
+
     );
 
 
@@ -4286,13 +4736,17 @@ function applyIncidentData(
 
             const name =
                 String(
+
                     row.state || ""
+
                 ).trim();
 
 
             const count =
                 Number(
+
                     row.count || 0
+
                 );
 
 
@@ -4402,9 +4856,11 @@ function applyIncidentData(
 
 
             districtNameLookup[
+
                 districtLookupKey(
                     name
                 )
+
             ] = {
 
                 name,
@@ -4417,7 +4873,7 @@ function applyIncidentData(
 
 
             /* =================================================
-               STORE ORIGINAL DATA
+               ORIGINAL ROW
                ================================================= */
 
             municipalityIncidentRows[
@@ -4445,7 +4901,7 @@ function applyIncidentData(
 
 
     /* =====================================================
-       UPDATE DISTRICT LAYERS
+       UPDATE DISTRICT INITIAL STYLES
        ===================================================== */
 
     Object.keys(
@@ -4491,13 +4947,19 @@ function applyIncidentData(
                     0.75,
 
                 fillColor:
+
                     count > 0
+
                         ? GREEN
+
                         : NO_DATA,
 
                 fillOpacity:
+
                     count > 0
+
                         ? 0.18
+
                         : 0.03
 
             });
@@ -4596,8 +5058,65 @@ function applyIncidentData(
 
 
     /* =====================================================
-       REFRESH
+       IMPORTANT:
+
+       DO NOT ALWAYS RETURN TO LEVEL 1.
+
+       RESTORE THE CURRENT LEVEL.
        ===================================================== */
+
+    if (
+        previousLevel === 2 &&
+        previousMunicipality &&
+        previousCluster
+    ) {
+
+        selectedMunicipality =
+            previousMunicipality;
+
+
+        selectedCluster =
+            previousCluster;
+
+
+        selectedDistrictName =
+            previousDistrict;
+
+
+        showDistrictLevel(
+
+            previousCluster,
+
+            previousMunicipality
+
+        );
+
+
+        return;
+
+    }
+
+
+    if (
+        previousLevel === 1 &&
+        previousMunicipality
+    ) {
+
+        selectedMunicipality =
+            previousMunicipality;
+
+
+        showMunicipality(
+
+            previousMunicipality
+
+        );
+
+
+        return;
+
+    }
+
 
     showMunicipalityOverview();
 
@@ -4633,6 +5152,7 @@ window.addEventListener(
             pendingIncidentData =
                 rows;
 
+
             return;
 
         }
@@ -4654,11 +5174,14 @@ window.addEventListener(
 window.showMunicipalityOverview =
     showMunicipalityOverview;
 
+
 window.showMunicipality =
     showMunicipality;
 
+
 window.showSecondLevel =
     showSecondLevel;
+
 
 window.showDistrictLevel =
     showDistrictLevel;
@@ -4666,4 +5189,5 @@ window.showDistrictLevel =
 </script>
 
 </body>
+
 </html>
